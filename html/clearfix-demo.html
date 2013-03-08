@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        .parent {
+            background-color: green;
+            border: 1px solid green;          
+        }
+        .left {
+            background-color: red;
+            height: 50px;
+            width: 100px;
+            float: left;
+        }
+        .right {
+            background-color: yellow;
+            height:100px;
+            width: 300px;
+            float: right;
+        }
+        .clearfix:after {
+            content: ".";
+            display: block;
+            clear: both;
+            visibility: hidden;
+            line-height: 0;
+            height: 0;
+        }         
+        .clearfix {
+            display: inline-block;
+        }         
+        html[xmlns] .clearfix {
+            display: block;
+        }        
+        * html .clearfix {
+            height: 1%;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent clearfix">
+        <div class="left">
+            
+        </div>
+        <div class="right">
+
+        </div>
+    </div>
+</body>
+</html>
