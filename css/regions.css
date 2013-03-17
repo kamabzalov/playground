@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.region-logo{
+    width: 2000px;
+    height: 70px;
+    background-color: red;
+}
+.region-menu{
+    width: 2000px;
+    height: 40px;
+    background-color: green;
+}
+.region-quote{
+    width: 2000px;
+    height: 25px;
+    background-color: blue;
+}
+.region-slider{
+    width: 2000px;
+    height: 220px;
+    background-color: yellow;
+}
+.region-courses{
+    width: 2000px;
+    height: 220px;
+    background-color: gold;
+}
+.region-partners{
+    width: 2000px;
+    height: 160px;
+    background-color: mediumvioletred;
+}
+.region-footer{
+    width: 2000px;
+    height: 100px;
+    background-color: lightgreen;
+}
