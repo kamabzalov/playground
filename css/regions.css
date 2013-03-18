@@ -37,3 +37,6 @@ body{
     height: 100px;
     background-color: lightgreen;
 }
+h3{
+    margin-top: 0;
+}
