@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <dl>
+            <dt>Красный</dt>
+            <dd><input type="range" min="0" max="255" id="r" name="r"></dd>
+
+            <dt>Зеленый</dt>
+            <dd><input type="range" min="0" max="255" id="g" name="g"></dd>
+
+            <dt>Синий</dt>
+            <dd><input type="range" min="0" max="255" id="b" name="b"></dd>
+        </dl>
+
+        <h1>Камиль Мухамедович Абзалов</h1>
+
+
+        <script>
+            ;
+            (function() {
+                var heading, r, g, b;
+
+                function supportsRange() {
+                    var i = document.createElement('input');
+                    i.setAttribute('type', 'range');
+
+                    return i.type === 'range';
+                }
+
+                if (supportsRange) {
+                    heading = document.querySelector('h1');
+                    r = document.querySelector('#r');
+                    g = document.querySelector('#g');
+                    b = document.querySelector('#b');
+
+                    document.body.addEventListener('change', function() 
+                    {
+                        heading.style.color = 'rgb('+ [r.value, g.value, b.value].join(',')+')';
+                    }, false);
+                }
+            })();
+
+
+
+        </script>
+    </body>
+</html>
