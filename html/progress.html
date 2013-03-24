@@ -1,0 +1,25 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <form>
+            <progress min="0" max="100" value="20">20</progress>
+            <meter min="0" max="100" value="50">50</meter>
+        </form>
+
+        <script>
+            var p = document.querySelector('progress');
+            
+            setInterval(function(){
+               p.value += 1; 
+            }, 50);
+        </script>
+    </body>
+</html>

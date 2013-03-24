@@ -1,0 +1,48 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <input type="text" placeholder="John Smith">
+        <input type="email">
+
+        <script>
+            if (!'placeholder' in document.createElement('input')) {
+
+            }
+            function testSupport(type) {
+                var i = document.createElement('input');
+                i.setAttribute('type', type);
+                return i.type === type;
+            }
+
+            if (!testSupport('email')) {
+
+            }
+
+            if (!!document.createElement('canvas').getContext) {
+
+            }
+            if (!!document.createElement('audio').canPlayType) {
+
+            }
+
+            function supportsStorage() {
+                try {
+                    return 'localStorage' in window && window.localStorage !== null;
+                } catch (e) {
+                    return false;
+                }
+            }
+            
+            if (!!navigator.geolocation) alert('track me!');
+
+        </script>
+    </body>
+</html>
