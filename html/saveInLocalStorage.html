@@ -1,0 +1,26 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="http://modernizr.com/downloads/modernizr-latest.js"></script>
+    </head>
+    <body>
+
+        <script src="../js/jquery.js"></script>
+<script>
+    (function(){
+        var o = {
+          first: 'kam',
+          last: 'abzalov'
+        };
+        Modernizr.localstorage && (localStorage.info = JSON.stringify(o));
+        
+    })();
+</script>
+    </body>
+</html>

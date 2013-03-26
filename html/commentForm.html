@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="http://modernizr.com/downloads/modernizr-latest.js"></script>
+        <style>
+            label, input[type=submit] { display: block;}
+            textarea {widt: 300px; height: 150px;}
+        </style>
+    </head>
+    <body>
+
+        <form>
+            <label for="comment">Ваш комментарий</label>
+            <textarea name="comment" id="comment"></textarea>
+
+            <input type="submit">
+        </form>
+
+        <script src="../js/jquery.js"></script>
+        <script>
+            if (Modernizr.localstorage) {
+                
+                    var updateInterval;
+                !!localStorage.comment && (comment.value = localStorage.comment);
+                if (localStorage.comment) {
+                    comment.value = localStorage.comment;
+                }
+
+
+                $('#comment').on('focus', function() {
+                    
+                    var $this = $(this);
+                    updateInterval = setInterval(function() {
+                        localStorage.comment = $this.val();
+                    }, 5000);
+                })
+                .on('blur', function() {
+                    clearInterval(updateInterval);
+                });
+            }
+
+
+
+        </script>
+    </body>
+</html>
