@@ -1,0 +1,60 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="http://modernizr.com/downloads/modernizr-latest.js"></script>
+    </head>
+    <body>
+
+        <form>
+            <input name="title">
+            <input name="name">
+            <textarea name="comment"></textarea>
+            <input type="checkbox" name="someCheck">
+            <input type="radio" name="someRadio">
+            <input name="submit">
+
+
+        </form>
+        <script src="../js/jquery.js"></script>
+
+        <script>
+            (function() {
+                var form = $('form');
+                
+                if (localStorage.formData){
+                    (function bindStorageToForm(){
+                        var data = localStorage.formData;
+                        sp = data.split(''),
+                        pair;
+                        
+                        $.each(sp, function(i, val){
+                            val.split('=');
+                            
+                            if(!pair[1]) return true;
+                            
+                            if (pair[1] === 'on'){
+                                form[0][pair[0]].value = unescape(pair[1]).replace(/\+/g, '');
+                            }
+                            
+                            form[0][pair[0]].value = unescape(pair[1]).replace(/\+/g, '');
+                        })
+                    })();
+                }
+                if (Modernizr.localstorage) {
+                    setInterval(function() {
+                        localStorage.formData = form.serialize();
+                    }, 3000);
+                }
+                
+                
+            })();
+        </script>
+
+    </body>
+</html>
