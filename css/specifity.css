@@ -1,0 +1,6 @@
+#people li{
+    color: black;
+}
+#people li.female{
+    color: red;
+}

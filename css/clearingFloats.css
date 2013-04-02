@@ -1,0 +1,16 @@
+.container{
+    background: grey;
+    border: 1px solid #c5c5c5;
+    overflow: hidden;
+}
+.cf:before,
+.cf:after {
+    content: "";
+    display: table;
+}
+.cf:after{
+    clear: both;
+}
+img{
+    float: left;
+}
