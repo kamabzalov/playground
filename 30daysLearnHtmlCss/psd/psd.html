@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>PSD template theme</title>
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link rel="stylesheet" type="text/css" href="text.css">
+	<link rel="stylesheet" type="text/css" href="960_24_col.css">
+	<style type="text/css">
+
+	.grid_3{
+		margin-left: 60px;
+	}
+	.container_24{
+		margin-top: 10px;
+	}
+	blockquote{
+		position: relative;
+	}
+	blockquote, blockquote p{
+		font-size: 15px;
+		line-height: 20px;
+		font-style: italic;
+		color: #0c0c0c;
+	}
+
+	p{
+		font-size: 13px;
+		line-height: 20px;
+		color: #353535;
+	}
+	h1, h2{
+		letter-spacing: -1px;
+	}
+	h2{
+		font-size: 26px;
+		text-transform: lowercase;
+		border-bottom: 1px solid #d1d1d1;
+		padding-bottom: 20px;
+		margin-bottom: 15px;
+		line-height: 1em;
+	}
+	a{
+		color: #7e7e7e;
+		text-decoration: none;
+	}
+	a:hover, .selected{
+		color: black;
+	}
+	.button{
+		background: #242324;
+		padding: 6px;
+		color: white;
+		text-transform: uppercase;
+		font-size: 11px;
+	}
+	.button:hover{
+		background: white;
+		color: white;
+	}
+	li{
+		margin-left: 24px;
+	}
+	header{
+		overflow: hidden;
+	}
+
+	header h1{
+		float: left;
+	}
+	header h1:after{
+		clear: both;
+		display: block;
+		content: ' ';
+		visibility: hidden;
+		height: 1%;
+	}
+	header h1 a{
+		width: 174px;
+		height: 23px;
+		float: left;
+	}
+	nav {
+		float: right;
+		padding-top: 12px;
+	}
+
+	nav li{
+		display: inline;
+	}
+
+	nav a{
+		text-transform: lowercase;
+	}
+
+	.banner{
+		width: 695px;
+		height: 231px;
+		position: relative;
+	}
+	.banner h2{
+		color: white;
+		font-size: 28px;
+		width: 400px;
+		font-weight: normal;
+		position: absolute;
+		bottom: -10px;
+		padding: 0 8px;
+		left: 8px;
+		background: rgba(0,0,0, .5);
+
+	}
+	.callout{
+		background: black;
+		height: 231px;
+	}
+	.main{
+		margin-top: 20px;
+	}
+	.main blockquote p{
+		padding-left: 30px;
+	}
+	.main blockquote p:first-child:before{
+		content: '"';
+		font-size: 40px;
+		color: #bfbfbf;	
+		font-style: italic;
+		position: absolute;
+		top: 5px;
+		left: 0;
+	}
+	.main blockquote p:last-child:after{
+		content: '"';
+		font-size: 40px;
+		color: #bfbfbf;	
+		font-style: italic;
+		float: right;
+		position: absolute;
+		bottom: -7px;
+		right: 0;
+	}
+	footer{
+		clear: both;
+		border-top: 1px solid #d1d1d1;
+		padding-top: 18px;
+		margin-top: 30px;
+	}
+	</style>
+</head>
+<body>
+	
+	<div class="container_24">
+		<header>
+			<h1><a href="#">Black + white</a></h1>
+			<nav>
+				<ul>
+					<li><a href="work.html" class="selected">Item 1</a></li>
+					<li><a href="#">item 2</a></li>
+					<li><a href="#">Item 3</a></li>
+					<li><a href="#">Item 4</a></li>
+					<li><a href="#">Item 5</a></li>
+				</ul>
+			</nav>
+			<div class="banner grid_18">
+				<h2>Lorem ipsum dolor sit</h2>
+			</div>
+			<div class="grid_6 callout"></div>
+		</header>
+
+		<div class="main clearfix">
+			<div class="grid_9">
+				<h2>Services</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> 
+				<p>Corporis, voluptatum, est, alias quasi magnam quae facere sapiente veritatis eveniet officia tempore minima iste deserunt dolorum ut odit harum. Tempore, aliquid!</p>
+				<p><a href="#" class="button">Read more</a></p>
+			</div>
+			<div class="grid_9">
+				<h2>How we work</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+				</p>
+				 <p>Odio, magnam veniam necessitatibus neque perspiciatis dolores alias esse harum. Eaque, obcaecati provident animi explicabo ut recusandae illum qui fuga quia iusto.</p>
+				<p><a href="#" class="button">Read more</a></p>
+			</div>	
+		<div class="grid_6">
+			<blockquote>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+				</p>
+				<p>Quidem consequuntur deleniti aut provident delectus!</p>
+				<p> Nobis, alias, nesciunt repellat quia dignissimos minima dolor harum nihil accusamus magni iusto magnam molestiae quisquam.</p>
+			</blockquote>
+		</div>
+	</div>
+		<footer>
+			<p><strong>black + </strong><a href="#">white</a></p>
+		</footer>
+	</div>
+
+</body>
+</html>

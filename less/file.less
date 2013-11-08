@@ -1,0 +1,73 @@
+//variables
+@blue: #195f88;
+@darkblue: darken(@blue, 8%);
+@red: #d9001f;
+@paleblue: lighten(desaturate(blue, 25%), 35%);
+@midblue: spin(lighten(desaturate(@blue, 25%), 17%), 1);
+@purple: mix(@blue, @red, 50%);
+
+@container: 500px;
+@box: @container / 2;
+
+.class {
+	width: @box;
+}
+
+.class2 {
+	width: percentage(2)
+}
+
+.purple {
+	color: @purple;
+}
+
+.msopacity(@opacity) {
+	-ms-filter: "progid: DXImageTransform Microsoft.Alpha(Opacity=@{opacity})";
+	filter: alpha(opacity=@opacity);
+}
+
+.borderradius{
+	-webkit-border-radius: 0.2em;
+	-moz-border-radius: 0.2em;
+	-o-border-radius: 0.2em;
+	border-radius: 0.2em;
+}
+.normalized {
+	font-weight: normal;
+	font-style: normal;
+	.msopacity(100);
+}
+
+@font-face {
+	.normalized;
+}
+
+a{
+	background: @blue;
+}
+
+header{
+	color: red;
+
+	h1{
+		font-size: 20px;
+	}
+}
+
+a{
+	&:link, &:visited {
+		font-size: 15px;
+	}
+}
+
+@mystring: "escape";
+
+.class {
+	content: "@{mystring} ing";
+}
+
+@margin: 20px;
+
+ul{
+	margin-top: @margin + 2 * 2;
+}

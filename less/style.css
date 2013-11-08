@@ -1,0 +1,46 @@
+.class {
+  width: 250px;
+}
+.class2 {
+  width: 200%;
+}
+.purple {
+  color: #793054;
+}
+.borderradius {
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  -o-border-radius: 0.2em;
+  border-radius: 0.2em;
+}
+.normalized {
+  font-weight: normal;
+  font-style: normal;
+  -ms-filter: "progid: DXImageTransform Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=100);
+}
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  -ms-filter: "progid: DXImageTransform Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=100);
+}
+a {
+  background: #195f88;
+}
+header {
+  color: red;
+}
+header h1 {
+  font-size: 20px;
+}
+a:link,
+a:visited {
+  font-size: 15px;
+}
+.class {
+  content: "escape ing";
+}
+ul {
+  margin-top: 24px;
+}

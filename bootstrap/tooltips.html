@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+</head>
+<body>
+
+	<div class="container">
+		<a href="#" data-toggle="tooltip" data-placement="bottom" data-title="title" data-animation="false" id="basic-tooltip" title="Title tooltip">Hover me</a>
+
+
+		<a href="#" class="btn btn-primary" data-toggle="popover" data-placement="bottom" title="First popoiver" data-content="This is content">Click me</a>
+	</div>
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script type="text/javascript">
+	$("#basic-tooltip").tooltip();
+	$(".btn").popover();
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+body {
+	background-color: #6f6f6f;
+	color: #eee;
+	font: 12px Arial, Helvetica, sans-serif;
+}
+
+.body-content{
+	width: 960px;
+	margin: 0 auto;
+}
+
+.yellow {
+	color: #fdd94b;
+}
+
+.purple {
+	color: #b58afc;
+}
+
+.green {
+	color: #7fca84;
+}
+
+.red {
+	color: #cc7c7c;
+}
+
+.blue {
+	color: #a1d9e9;
+}
+
+.orange {
+	color: #fcb372;
+} 
+
+nav {
+	text-transform: uppercase;
+	width: 100%;
+	background-color: #565656;
+	border-top: 1px solid #939393;
+	border-bottom: 1px solid #353535;
+	height: 57px;
+}
+
+nav a {
+	text-decoration: none;
+
+}
+
+nav ul.main-nav {
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+	width: 960px;
+	border-left: 1px solid #000;
+	border-right: 1px solid #939393;
+	height: 57px;
+}
+
+nav ul.main-nav > li > a {
+	width: 148px;
+	height: 41px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	padding: 8px 6px;
+}
+
+nav ul.main-nav > li > a:hover {
+	background-color: #333;
+	text-shadow: 0 0 .5em #888;
+}
+
+nav ul.main-nav > li {
+	float: left;
+	width: 158px;
+	position: relative;
+	height: 57px;
+	border-left: 1px solid #939393;
+	border-right: 1px solid #000;
+}
+
+.nav-name{
+	display: block;
+	font-size: 1.7em;
+}
+
+.nav-desc {
+	color: #ccc;
+}

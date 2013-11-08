@@ -1,0 +1,107 @@
+<!DOCTYPE html>	
+<html>
+<head>
+	<title>Grid</title>
+
+	<style type="text/css">
+		* {
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+			-webkit-font-smoothing: antialiased;
+		 }
+
+		 body {
+		 	font: 100%/1.5em Helvetica, Arial, sans-serif;
+		 	color: #313131;
+		 }
+
+		 img {
+		 	max-width: 100%;
+		 	height: auto;
+		 }
+
+		 .container{
+		 	width: 90%;
+		 	margin: 0 auto;
+
+		 }
+
+		 .row{
+		 	float: left;
+		 	clear: both;
+		 }
+
+		.container .columns {
+		 	float: left;
+		 	background: tomato;
+		 	margin: 0 0 1em;
+		 	text-align: center;
+		 	padding-right: 1em;
+		 	padding-left: 1em;
+		 }
+
+		 .container .columns.one{width: 6.25%}
+		 .container .columns.two{width: 12.5%}
+		 .container .columns.three{width: 18.75%}
+		 .container .columns.four{width: 25%}
+		 .container .columns.five{width: 31.25%}
+		 .container .columns.six{width: 37.5%}
+		 .container .columns.seven{width: 43.75%}
+		 .container .columns.eight{width: 50%}
+		 .container .columns.nine{width: 56.25%}
+		 .container .columns.ten{width: 62.5%}
+		 .container .columns.eleven{width: 68.75%}
+		 .container .columns.twelve{width: 75%}
+		 .container .columns.thirteen{width: 81.25%}
+		 .container .columns.fourteen{width: 87.5%}
+		 .container .columns.fifteen{width: 93.75%}
+		 .container .columns.sixteen{width: 100%}
+
+
+		 .clearfix:after,
+		 .container:after {
+		 	content: '';
+		 	display: block;
+		 	overflow: hidden;
+		 	visibility: hidden;
+		 	width: 0;
+		 	height: 0;
+		 	clear: both;
+		 }
+
+		 .clearfix,
+		 .container{
+		 	zoom: 1;
+		 }
+
+		
+	</style>
+</head>
+<body>
+	<div class="container">
+
+		<div class="row">
+
+			<div class="columns sixteen">
+				<img src="git.png" alt="" width="2000" height="1000"/>
+			</div>
+
+		</div>
+
+		<div class="columns eight">eight</div>
+
+		<div class="columns eight">eight</div>
+
+
+		<div class="columns six">six</div>
+
+		<div class="columns eight">eight</div>
+
+		<div class="columns two">two</div>
+
+	</div>
+</body>
+</html>
