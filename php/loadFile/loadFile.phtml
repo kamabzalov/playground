@@ -1,0 +1,72 @@
+<?php
+    $fileName = 'licenseutf8.csv';
+
+    $content = file($fileName);
+
+    //print_r($content);
+
+    $result = array();
+
+    foreach ($content as $row) {
+        $data = explode(';', $row);
+        $result[] = $data;
+    }
+
+ //   print_r($result);
+
+$dbParams = array(
+    'dbname' => "test",
+    'host' => "localhost",
+    'user' => "root",
+    'password' => "millenium"
+);
+
+$dsn = "mysql:host={$dbParams['host']}; dbname={$dbParams['dbname']}";
+
+try {
+    $db = new PDO(
+            $dsn,
+            $dbParams['user'],
+            $dbParams['password'],
+            array(
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+                )
+          );
+} catch (PDOException $e) {
+    echo $e->getMessage();
+    die();
+}
+
+$sql = 'DELETE FROM specialities';
+$db->query($sql);
+
+
+$sql = "INSERT INTO specialities (
+            speciality_id, speciality_code,
+            speciality_title, speciality_level,
+            qualification, code_qualification,
+            programm_type, learn_period
+        ) VALUES (
+            :speciality_id, :speciality_code,
+            :speciality_title, :speciality_level,
+            :qualification, :code_qualification,
+            :programm_type, :learn_period
+        )
+        ";
+
+
+
+$stmt = $db->prepare($sql);
+
+foreach ($result as $row) {
+    $stmt->bindValue(':speciality_id', null);
+    $stmt->bindValue(':speciality_code', trim($row[1]));
+    $stmt->bindValue(':speciality_title', trim($row[2]));
+    $stmt->bindValue(':speciality_level', trim($row[3]));
+    $stmt->bindValue(':qualification', trim($row[4]));
+    $stmt->bindValue(':code_qualification', trim($row[5]));
+    $stmt->bindValue(':programm_type', trim($row[6]));
+    $stmt->bindValue(':learn_period', trim($row[7]));
+
+    $stmt->execute();
+}
