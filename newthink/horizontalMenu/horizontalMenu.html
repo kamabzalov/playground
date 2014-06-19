@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		BODY
+{font-family: verdana, tahoma, arial, sans-serif;
+font-size: 10pt;
+margin: 0px;
+margin-left: 3px;
+margin-right: 3px;
+padding: 0px;}
+
+P
+{padding-top: 10px;
+margin: 0px;}
+
+H1
+{font-size: 12pt;
+font-weight: bold;
+padding-top: 15px;
+margin: 0;}
+
+table.navbar
+{font-size: 8pt;
+margin: 0px;
+padding: 0px; 
+border: 0px; 
+font-weight: bold;}
+
+table.menu
+{font-size: 8pt;
+margin: 0px;
+padding: 0px;
+font-weight: bold;}
+
+td.menuNormal
+{padding: 0px;
+color: white;
+font-weight: bold;
+vertical-align: top;
+background-color: #0000FF;}
+
+td.menuHover
+{padding: 0px;
+color: black;
+font-weight: bold;
+vertical-align: top;
+/*remove the following line for drop-down menu with images*/
+background-color: lightblue;}
+
+div.menuNormal
+{display: none;
+position: static;}
+
+div.menuHover
+{border: 2.5px solid white;
+background-color: #0000FF;
+display: inline;
+position: absolute;}
+
+a.menuitem:link
+{text-decoration: none;
+color: white;
+padding: 2.5px;
+background-color: #0000FF;
+border-bottom: 2.5px solid white;
+display: block;}
+
+a.menuitem:visited
+{text-decoration: none;
+color: white;
+padding: 2.5px;
+background-color: #0000FF;
+border-bottom: 2.5px solid white;
+display: block;}
+
+a.menuitem:hover
+{text-decoration: none;
+color: black;
+padding: 2.5px;
+background-color: lightblue;
+border-bottom: 2.5px solid white;
+display: block;}
+
+a.menuitem:active
+{text-decoration: none;
+color: black;
+padding: 2.5px;
+background-color: lightblue;
+border-bottom: 2.5px solid white;
+display: block;}
+
+	</style>
+	<script>
+		function expand(s)
+{
+  var td = s;
+  var d = td.getElementsByTagName("div").item(0);
+
+  td.className = "menuHover";
+  d.className = "menuHover";
+}
+
+function collapse(s)
+{
+  var td = s;
+  var d = td.getElementsByTagName("div").item(0);
+
+  td.className = "menuNormal";
+  d.className = "menuNormal";
+}
+
+	</script>
+</head>
+<body>
+
+  <h1 align="center">Menubar Example</h1>
+  
+  <div id="menu">
+
+  <!-- This dropdown menu is created by using a table named "navbar". It has a default width of 800 pixels -->
+  <table class="navbar" width="800">
+    <tr>
+    
+    <!-- We are creating the first column in the table and assigning the css attributes assigned to "menuNormal". We are defining 		the width to be 160 pixels. We will trigger javascript functions on both the onmouseover and onmouseout events. -->
+    
+      <td class="menuNormal" width="160" onmouseover="expand(this);" 
+      onmouseout="collapse(this);">
+        
+        <!-- This is the menu item name that will appear at the top of the screen -->
+        
+        <p>Menu 1</p>
+        
+        <!-- Each drop-down menu is contained within a DIV element nested within each top-level TD element. There is a table nested 		inside of each of those div's. When a onmouseover event is triggered the div's attribute display is switched from none to 			inline, which allows a visitor to see the div on screen.-->
+        
+        <div class="menuNormal" width="155">
+          <table class="menu" width="155">
+            <tr><td class="menuNormal">
+              <a href="page.htm" class="menuitem">Item 1</a>
+            </td></tr>
+            <tr><td class="menuNormal">
+              <a href="page.htm" class="menuitem">Item 2</a>
+            </td></tr>
+            <tr><td class="menuNormal">
+              <a href="page.htm" class="menuitem">Item 3</a>
+            </td></tr>
+            <tr><td class="menuNormal">
+              <a href="page.htm" class="menuitem">Item 4</a>
+            </td></tr>
+          </table>
+        </div>
+      </td>
+
+      <td class="menuNormal" width="160" onmouseover="expand(this);" 
+      onmouseout="collapse(this);">
+        <p>Menu 2</p>
+        <div class="menuNormal" width="155">
+          <table class="menu" width="155">
+            <tr><td class="menuNormal">
+              <a href="page.htm" class="menuitem">Item 1</a>
+            </td></tr>
+            <tr><td class="menuNormal">
+              <a href="page.htm" class="menuitem">Item 2</a>
+            </td></tr>
+            <tr><td class="menuNormal">
+              <a href="page.htm" class="menuitem">Item 3</a>
+            </td></tr>
+            <tr><td class="menuNormal">
+              <a href="page.htm" class="menuitem">Item 4</a>
+            </td></tr>
+          </table>
+        </div>
+      </td>
+
+      <td class="menuNormal" width="160" onmouseover="expand(this);" 
+      onmouseout="collapse(this);">
+        <p>Menu 3</p>
+        <div class="menuNormal" width="155">
+          <table class="menu" width="155">
+            <tr><td class="menuNormal">
+              <a href="page.htm" class="menuitem">Item 1</a>
+            </td></tr>
+            <tr><td class="menuNormal">
+              <a href="page.htm" class="menuitem">Item 2</a>
+            </td></tr>
+            <tr><td class="menuNormal">
+              <a href="page.htm" class="menuitem">Item 3</a>
+            </td></tr>
+            <tr><td class="menuNormal">
+              <a href="page.htm" class="menuitem">Item 4</a>
+            </td></tr>
+          </table>
+        </div>
+      </td>
+
+      <td class="menuNormal" width="160" onmouseover="expand(this);" 
+      onmouseout="collapse(this);">
+        <p>Menu 4</p>
+        <div class="menuNormal" width="155">
+          <table class="menu" width="155">
+            <tr><td class="menuNormal">
+              <a href="page.htm" class="menuitem">Item 1</a>
+            </td></tr>
+            <tr><td class="menuNormal">
+              <a href="page.htm" class="menuitem">Item 2</a>
+            </td></tr>
+            <tr><td class="menuNormal">
+              <a href="page.htm" class="menuitem">Item 3</a>
+            </td></tr>
+            <tr><td class="menuNormal">
+              <a href="page.htm" class="menuitem">Item 4</a>
+            </td></tr>
+          </table>
+        </div>
+      </td>
+
+      <td class="menuNormal" width="160" onmouseover="expand(this);" 
+      onmouseout="collapse(this);">
+        <p>Menu 5</p>
+        <div class="menuNormal" width="155">
+          <table class="menu" width="155">
+            <tr><td class="menuNormal">
+              <a href="page.htm" class="menuitem">Item 1</a>
+            </td></tr>
+            <tr><td class="menuNormal">
+              <a href="page.htm" class="menuitem">Item 2</a>
+            </td></tr>
+            <tr><td class="menuNormal">
+              <a href="page.htm" class="menuitem">Item 3</a>
+            </td></tr>
+            <tr><td class="menuNormal">
+              <a href="page.htm" class="menuitem">Item 4</a>
+            </td></tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+  </div>
+
+</body>
+</html>

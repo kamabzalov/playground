@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+
+		document.write("Cookie: " + document.cookie);
+
+		function getACookie (name) {
+			var cookieName = document.getElementById("getme").value;
+			var allCookies = document.cookie.split(';');
+
+			var cookieData = "";
+
+			for (var i = 0; i < allCookies.length; i++) {
+					if((allCookies[i].indexOf(cookieName)) ! = -1) {
+						match = allCookies[i].replace(" ", "");
+						cookieData = match.substr((cookieName.length + 1));
+						alert(cookieName + " " + cookieData);
+					}
+				}
+		}
+
+		function createCookie (newCookie) {
+			var expDate = new Date();
+
+			expDate.setMonth(expDate.getMonth() + 1);
+
+			var cookieVal = document.getElementById(newCookie).value;
+
+			document.cookie = newCookie + "=" + cookieVal + "" + expDate.toGMTString();
+		}
+
+		function deleteCookie () {
+			var cookieDel = document.getElementById("deleteMe").value;
+
+			createCookie(cookieDel, "", -1);
+		}
+
+	</script>		
+
+	<p>Enter firstName
+		<input type="text" id="firstName" onblur="createCookie('firstName');" /> <br>
+	</p>
+
+	<p>Enter lastName
+		<input type="text" id="lastName" onblur="createCookie('lastName');" /> <br>
+	</p>
+
+	<p>Cookie to delete
+		<input type="text" id="deleteMe" onblur="deleteCookie();" /> <br>
+	</p>
+
+	<p>Cookie to get
+		<input type="text" id="getMe" onblur="getACookie();" /> <br>
+	</p>	
+
+</body>
+</html>

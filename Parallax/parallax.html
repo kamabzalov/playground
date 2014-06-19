@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="normalize.css">
+	<script src="jquery-1.10.2.min.js"></script>
+	<style>
+		#grid {
+			background: #cf67ba;
+			position: fixed;
+			top: 0;
+			width: 100%;
+			height: 2000px;
+			z-index: 1;
+		}
+		#content {
+			position: relative;
+			color: #888;
+			text-align: center;
+			width: 500px;
+			margin: 0 auto;
+			z-index: 2;
+		}
+		#content article {
+			background-color: #f4f4f4;
+			border: 1px solid #ddd;
+			height: 200px;
+			opacity: .8;
+			margin: 50px 0;
+			padding: 20px;
+			text-align: left;
+		}
+	</style>
+</head>
+<body>
+	<div id="grid"></div>
+	<div id="content">
+		<h1>Sample Parallax Demo</h1>
+		<article>
+			<h2>Article 1</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, voluptatum, blanditiis, quod rem impedit ad maxime molestiae officiis quis molestias ipsum explicabo suscipit necessitatibus quaerat iusto. Illum excepturi consequuntur quo.</p>
+		</article>
+		<article>
+			<h2>Article 2</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, voluptatum, blanditiis, quod rem impedit ad maxime molestiae officiis quis molestias ipsum explicabo suscipit necessitatibus quaerat iusto. Illum excepturi consequuntur quo.</p>
+		</article>
+		<article>
+			<h2>Article 3</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, voluptatum, blanditiis, quod rem impedit ad maxime molestiae officiis quis molestias ipsum explicabo suscipit necessitatibus quaerat iusto. Illum excepturi consequuntur quo.</p>
+		</article>
+		<article>
+			<h2>Article 4</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, voluptatum, blanditiis, quod rem impedit ad maxime molestiae officiis quis molestias ipsum explicabo suscipit necessitatibus quaerat iusto. Illum excepturi consequuntur quo.</p>
+		</article>
+		<article>
+			<h2>Article 5</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, voluptatum, blanditiis, quod rem impedit ad maxime molestiae officiis quis molestias ipsum explicabo suscipit necessitatibus quaerat iusto. Illum excepturi consequuntur quo.</p>
+		</article>
+	</div>
+	<script>
+		$(document).ready(function(){
+			$(window).bind('scroll', function(e){
+				parallax();
+			});
+		});
+		function parallax() {
+			var scrollPosition = $(window).scrollTop();
+			$('#grid').css('top', (0 - (scrollPosition * .2))+'px');
+		}
+	</script>
+</body>
+</html>

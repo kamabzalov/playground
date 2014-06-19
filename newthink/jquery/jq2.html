@@ -1,0 +1,93 @@
+<!doctype html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script src="jquery-2.1.js"></script>
+	</head>
+	<body>
+		
+		<script>
+
+			$("document").ready(function(){
+
+				$('p:last').css({"background-color": "purple", "color": "white"});
+
+				$("p span:first-child").css("background-color", "orange");
+
+				$("div p:last-child").css("background-color", "green");
+
+				$("div:nth-child(2)").css("background-color", "pink");
+
+				$("span:eq(2)").css("background-color", "yellow");
+
+				$("h4:gt(0)").css("background-color", "green");	
+				
+				$("h4:lt(2)").css("background-color", "olive");	
+
+				$("#clickToHide").click(function(){
+					$("#clickToHide").hide();
+				});	
+
+				$('#bringItBack').click(function(){
+					if($('#clickToHide').is(':visible')) {
+						$('#clickToHide').fadeOut(2000);
+						$(this).val('Bring Back');
+					}	
+					else {
+						$('#clickToHide').fadeIn(2000);
+						$(this).val('Delete');
+					}
+				});
+
+			});
+
+		</script>
+
+
+<div id="firstDiv">
+
+<h4>First Header</h4>
+
+<p id="firstPara">First paragraph in first div<span> First Span</span></p>
+
+<p>Second paragraph in first div</p>
+
+<p>Third paragraph in first div</p>
+
+</div>
+
+ 
+
+<div id="secondDiv">
+
+<h4>Second Header</h4>
+
+<p>First paragraph in second div<span> Second Span</span></p>
+
+<p>Second paragraph in second div</p>
+
+<p>Third paragraph in first div</p>
+
+</div>
+
+ 
+
+<div id="thirdDiv">
+
+<h4>Third Header</h4>
+
+<p>First paragraph in third div<span> Third Span</span></p>
+
+<p>Second paragraph in third div</p>
+
+<p>Third paragraph in first div</p>
+
+</div>
+
+<span id="clickToHide">Click to hide me</span>
+
+<input type="button" id="bringItBack" value="Bring Back" />
+
+</body>
+</html>	

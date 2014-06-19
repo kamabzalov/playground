@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/baseballplayer2"
+xmlns:nttbp="http://www.example.org/baseballplayer2" elementFormDefault="qualified">
+
+<xs:annotation>	
+	<xs:documenatation>	
+		This is XML schema
+	</xs:documenatation>
+</xs:annotation>
+
+<xs:element name="baseballplayers"/>
+<xs:element name="player_name" type="xs:string"/>
+<xs:element name="current_age" type="xs:integer"/>
+<xs:element name="batting_average" type="xs:decimal"/>
+<xs:element name="current_age" type="xs:integer"/>
+<xs:element name="starting" type="xs:boolean"/>
+<xs:element name="date_born" type="xs:date"/>
+<xs:element name="next_game_time" type="xs:time"/>
+<xs:element name="final_game" type="xs:dateTime"/>
+<xs:element name="time_in_game" type="xs:duration"/>
+<xs:element name="picture" type="xs:anyURI" />
+<xs:element name="last_tweet">
+	<xs:simpleType>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="140"/>
+			<xs:minLength value="2" />
+			<xs:length value="140" />
+	</xs:simpleType>
+</xs:element>
+
+<xs:simpleType name="position">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="Pitcher"/>
+		<xs:enumeration value="Catcher"/>
+		<xs:enumeration value="Infielder"/>
+		<xs:enumeration value="outfielder"/>
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="id_code"/>
+	<xs:restriction base="xs:string">
+		<xs:pattern value="'d{2}[a-zA-Z]{2,5}" />
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="prev_bat_avg">
+	<xs:list itemType="xs:deciaml" />
+</xs:simpleType>
+
+<xs:simpleType name="message_to_fans">
+	<xs:union memberTypes="last_tweet fb_messge"/>
+</xs:simpleType> 
+</schema>
+

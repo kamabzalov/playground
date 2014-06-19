@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-2.1.js"></script>
+</head>
+<body>
+	
+	<script>
+
+		$("document").ready(function () {
+			$('#replaceWHtml').bind('click', replaceWHtml);
+			$('#replaceWText').bind('click', replaceWText);
+
+			$('#addAPara').bind('click', addAPara);
+			$('#removeAPara').bind('click', removeAPara);
+
+			$('#lastIsFirst').bind('click', lastIsFirst);
+			$('#addBefore').bind('click', addBefore);
+			$('#addAfter').bind('click', addAfter);
+			$('#addToTextBox').bind('click', addToTextBox);
+
+		});
+
+		function replaceWHtml() {
+			$('#h3Tag').html('<h6>Wow it is h6 tag</h6>');
+		}
+
+		function replaceWText() {
+			$('#h3Tag').text('<h6>Wow it is h6 tag</h6>');
+		}
+
+		function addAPara() {
+			$('#randPara').append('<p>Wow it is p tag</p>');
+		}
+
+		function removeAPara() {
+			$('#randPara p:last').remove();
+		}
+
+		function lastIsFirst() {
+			$('#randPara p:last').append($('#randPara p:first'));
+		}
+
+		function addBefore() {
+			$('#randPara p:first').before('I am before');
+		}
+
+		function addAfter() {
+			$('#randPara p:last').after('I am after');
+		}
+
+		function addToTextBox() {
+			$('#randText').val('Random text');
+		}
+
+	</script>
+
+	<div><h3>Playing With Text</h3></div>
+
+<div>
+
+<h3 id="h3Tag">H3 Tag</h3>
+
+</div>
+
+<br />
+
+ 
+
+<div id="randPara">
+
+<p id="firstP">The first paragraph<p>
+
+</div>
+
+ 
+
+<br />
+
+ 
+
+<form action="">
+
+<input type="text" id="randText"></input>
+
+<button type="button" id="replaceWHtml">Replace w/ HTML</button>
+
+<button type="button" id="replaceWText">Replace w/ Text</button>
+
+<button type="button" id="addAPara">Add Text</button>
+
+<button type="button" id="removeAPara">Remove Text</button>
+
+<button type="button" id="lastIsFirst">Last to First</button>
+
+<button type="button" id="addBefore">Add Before</button>
+
+<button type="button" id="addAfter">Add After</button>
+
+<button type="button" id="addToTextBox">Add To Text Box</button>
+
+</form>
+
+
+</body>
+</html>

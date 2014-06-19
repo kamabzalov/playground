@@ -1,0 +1,25 @@
+html {
+	background: #eee1c2;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=’#EEE1C2′, endColorstr=’#FFFFFF’);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#EEE1C2), to(#FFFFFF));
+	background-image: -moz-linear-gradient(top,  #EEE1C2,  #FFFFFF);
+}
+
+body {
+	background: #eee1c2;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=’#EEE1C2′, endColorstr=’#FFFFFF’);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#EEE1C2), to(#FFFFFF));
+	background-image: -moz-linear-gradient(top,  #EEE1C2,  #FFFFFF);
+	font: 14px/1.4 Georgia, Serif;
+}
+
+#header, #footer, #firstSideBar, #secondSidebar {
+	display: block;
+}
+
+#pageWrapper {
+	width: 1000px;
+	background-color: #ffffff;
+	margin-left: auto;
+	margin-right: auto;
+}

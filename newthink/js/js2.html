@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style>
+		#h3Style {
+			color: gray;
+		}
+	</style>
+</head>
+<body onResize="changeImage();">
+	
+	<script>
+
+		function changeImage () {
+			document.getElementById('littlebrain').style.height = "35%";
+			document.getElementById('littlebrain').style.width = "35%";
+			return true;
+		}
+
+		function alertme () {
+			alertmsg = document.getElementById('littlebrain').src + "\nHeight:" + document.getElementById('littlebrain').width;
+			alert(alertmsg);
+			return true;
+		}
+		function changeColor () {
+			document.getElementById("h3Style").style.color = "red";
+			document.getElementById("h3Style").firstChild.nodeValue="Excited";
+			return true;
+		}
+
+		function changeAgain () {
+			document.getElementById("h3Style").style.color = "gray";
+			document.getElementById("h3Style").firstChild.nodeValue="Changed";
+			return true;
+		}
+
+		function showPara () {
+			document.getElementById("first").style.visibility = (document.formex.firstpara.checked) ? "visible" : "hidden";
+			document.getElementById("second").style.visibility = (document.formex.secondpara.checked) ? "visible" : "hidden";
+			document.getElementById("third").style.visibility = (document.formex.thirdpara.checked) ? "visible" : "hidden";
+			return true;
+
+		}
+
+
+	</script>
+
+	<img src="http://lorempixel.com/400/200" alt="" id="littlebrain" onClick="alertme();" onDblClick="alert('Click me');"/>
+
+	<h3 id="h3Style" onMouseOver="changeColor();" onMouseOut="changeAgain();">Rollover</h3>
+
+	<p id="first">This is a paragraph</p>
+	<p id="second">This is a paragraph</p>
+	<p id="third">This is a paragraph</p>
+
+	<form name="formex" action="">
+		<!--<input type="checkbox" name="firstpara" onClick="showPara();"/>
+		<input type="checkbox" name="secondpara" onClick="showPara();"/>
+		<input type="checkbox" name="thirdpara" onClick="showPara();"/> -->
+
+		<p>Text input</p>
+		<input type="text" name="mousex" />Mouse X position <br>
+		<input type="text" name="mousey" />Mouse Y position <br>
+		<input type="text" name="keypress" />Key Presses <br>
+		<input type="text" name="mousebutton" />Mouse Button <br>
+	</form>
+
+	<script>
+
+	var mie = (navigator.appName = "Microsoft Internet Explorer")? true:false;
+
+	if (!mie) {
+		document.captureEvents(Event.MOUSEMOVE);
+		document.captureEvents(Event.MOUSEDOWN);
+	}
+
+	document.onmousemove = mousePos;
+	document.onmousedown = mouseClicked;
+	document.onkeypress = keyPressed;
+	var mouseClick = 0;
+	var keyClicked = 0;
+	var mouseX = 0;
+	var mouseY = 0;
+
+	function mousePos(e) {
+		if (!mie)
+	            {
+	                mouseX = e.pageX;
+	                mouseY = e.pageY;
+	            }
+	            else
+	            {
+	                mouseX = e.clientX + document.body.scrollLeft;
+	                mouseY = e.clientY + document.body.scrollTop;
+	            }
+	             
+	            document.formex.mousex.value = mouseX;
+	            document.formex.mousey.value = mouseY;
+	            return true;
+
+	}
+
+	function keyPressed(e) {
+		if(mie) {
+			e = window.event;
+			keyClicked = e.keyCode;
+		} else {
+			keyClicked = String.fromCharCode(e.charCode);
+		}
+		if (!keyClicked)
+		{
+			return false;
+		}
+		document.formex.keypress.value = keyClicked;
+		return true;
+	}
+
+	function mouseClicked (e) {
+		if (mie) {
+			switch(e.button) {
+				case 0:
+					document.formex.mousebutton.value = "left";
+					break;
+				case 1:
+					document.formex.mousebutton.value = "middle";
+					break;
+				default:
+					document.formex.mousebutton.value = "right";
+					break;
+			}
+			return false;
+		}
+		else {
+			switch(e.which) {
+				case 1:
+					document.formex.mousebutton.value = "left";
+					break;
+				case 1:
+					document.formex.mousebutton.value = "middle";
+					break;
+				default:
+					document.formex.mousebutton.value = "right";
+					break;
+			}
+			return true;	
+		}
+	}
+
+	</script>
+
+</body>
+</html>

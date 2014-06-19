@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Nav3</title>
+	<link rel="stylesheet" type="text/css" href="normalize.css">
+	
+	<script src="jquery.js"></script>
+	<script>
+		$(function() {
+			$('ul.subnav').hide();
+			$('ul.main-nav > li').hover(
+					function() {
+						$(this).children('ul.subnav').slideDown();
+					},
+					function() {
+						$(this).children('ul.subnav').slideUp();
+					}
+				);	
+		});
+	</script>
+</head>
+<body>
+
+<div class="left-sidebar">
+
+		<ul class="main-nav">
+			<li class="btn-home"><a href="#">Home</a></li>
+			<li class="btn-about"><a href="#">About us</a>
+				<ul class="subnav">
+					<li><a href="#">Who we are</a></li>
+					<li><a href="#">What we do</a></li>
+				</ul>
+			</li>	
+			<li class="btn-portfolio"><a href="#">Portfolio</a>
+				<ul class="subnav">
+					<li><a href="#">Web design</a></li>
+					<li><a href="#">Graphic desigh</a></li>
+					<li><a href="#">Video production</a></li>
+				</ul>
+			</li>
+			<li class="btn-pricing"><a href="#">Pricing</a></li>
+			<li class="btn-contact"><a href="#">Contact</a></li>
+		</ul>
+</div>
+
+	<div class="body-content">
+		<h2>Third menu</h2>	
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, quod, repudiandae consectetur vitae facilis cum asperiores ex velit vero voluptatibus. Omnis, nihil repellat earum quae itaque quam atque similique doloremque.</p>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, doloremque iusto nostrum similique dolorem maxime officia tempora fugiat. Unde, magni, aspernatur odio dolor perferendis eius reprehenderit ipsam doloribus aliquam totam.</p>
+	</div>
+	
+</body>
+</html>

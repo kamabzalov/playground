@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="normalize.css">
+	<script src="jquery-1.10.2.min.js"></script>
+	<style>
+		#stars {
+			background: #425169 url('space.jpg') top center;
+			width: 100%;
+			height: 8000px;
+			position: fixed;
+			top: 0;
+			z-index: 100;
+		}
+		#content {
+			color: #fff;
+			position: relative;
+			margin: 0 auto;
+			width: 960px;
+			z-index: 300;
+		}
+		#content article {
+			padding-top: 50px;
+			width: 350px;
+		}
+		#content article#home {
+			width: 960px;
+		}
+		#content article h2 {
+			color: #b2c1cd;
+			font-size: 34px;
+			margin-bottom: 0;
+		}
+		#moon {
+			position: absolute;
+			top: 2775px;
+		}
+		#rocket {
+			position: absolute;
+			top: 5775px;
+		}
+		#saturn {
+			position: absolute;
+			top: 8775px;
+			padding-bottom: 800px;
+		}
+		#images {
+			position: fixed;
+			top: 0;
+			width: 100%;
+			z-index: 200;
+		}
+		#images img {
+			padding-top: 50px;
+		}
+		#img-moon {
+			position: absolute;
+			top: 1500px;
+			left: 50%;
+		}
+		#img-rocket {
+			position: absolute;
+			top: 3000px;
+			left: 50%;
+		}
+		#img-saturn {
+			position: absolute;
+			top: 4500px;
+			left: 50%;
+		}
+		#main-nav {
+			background-color: #303d50;
+			height: 35px;
+			padding: 0;
+			margin: 0;
+			position: fixed;
+			top: 0;
+			width: 100%;
+			z-index: 1000;
+		}
+		#main-nav ul {
+			width: 960px;
+			margin: 0 auto;
+			height: 25px;
+			padding-top: 10px;
+		}
+		#main-nav ul li {
+			float: left;
+			height: 30px;
+			width: 200px;
+			padding-left: 0;
+			list-style-type: none;
+			text-align: center;
+		}
+		#main-nav ul li a {
+			color: #f1ecb9;
+			font-weight: bold;
+			text-decoration: none;
+		}
+		#earth {
+			width: 100%;
+			position: relative;
+			text-align: center;
+			z-index: 900;
+		}
+	</style>
+	<script>
+		$(document).ready(function(){
+			$(window).bind('scroll', function(e){
+				parallax();
+			});
+
+			$('a.earth').click(function() {
+				$('html, body').animate({ scrollTop:0}, 1000, 
+					function() {
+						parallax();
+					});
+				return false;
+			});
+
+			$('a.moon').click(function() {
+				$('html, body').animate({ scrollTop:$('#moon').offset().top}, 1000, 
+					function() {
+						parallax();
+					});
+				return false;
+			});
+
+			$('a.rocket').click(function() {
+				$('html, body').animate({ scrollTop:$('#rocket').offset().top}, 1000, 
+					function() {
+						parallax();
+					});
+				return false;
+			});
+
+			$('a.saturn').click(function() {
+				$('html, body').animate({ scrollTop:$('#saturn').offset().top}, 1000, 
+					function() {
+						parallax();
+					});
+				return false;
+			});
+		});
+		function parallax() {
+			var scrollPosition = $(window).scrollTop();
+			$('#stars').css('top', (0 - (scrollPosition * .2)) + 'px');
+			$('#images').css('top', (0 - scrollPosition * .5)) + 'px');
+		}
+	</script>
+</head>
+<body>
+
+	<nav id="main-nav">
+		<ul>
+			<li><a class="earth" href="#earth">Back Home</a></li>
+			<li><a class="moon" href="#moon">Moon</a></li>
+			<li><a class="rocket" href="#rocket">Roket</a></li>
+			<li><a class="saturn" href="#saturn">Saturn</a></li>
+		</ul>	
+	</nav>
+
+	<div id="earth">
+		<img id="img-earth" src="space.jpg" alt="earth">
+	</div>
+	<div id="stars"></div>
+	<div id="images">
+		<img id="img-moon" src="http://lorempixel.com/400/200/" alt="moon">
+		<img id="img-rocket" src="http://lorempixel.com/400/200/" alt="rocket">
+		<img id="img-saturn" src="http://lorempixel.com/400/200/" alt="saturn">
+	</div>
+
+	<div id="content">
+		<article id="home">
+			<h2>Welocme to Our Site</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, illo, veniam, sit, perferendis voluptatibus autem nulla dicta cum rem quos ducimus sunt excepturi ab velit iusto magnam commodi earum dolor.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, molestias, consequatur vel expedita eaque sapiente corporis eveniet libero dolore modi deleniti suscipit reiciendis quas ut cumque provident praesentium. Doloribus, quo!</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+		</article>
+		<article id="moon">
+			<h2>Our contacts</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, repudiandae, laboriosam quam nam placeat quidem odit incidunt quae vel molestiae officiis et error hic?</p>
+		</article>
+		<article id="rocket">
+			<h2>Our products</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, mollitia enim vel saepe est repellat soluta minus dolorum unde illo ex maiores voluptas ipsum reiciendis tempora eaque rerum illum laudantium?</p>
+		</article>
+		<article id="saturn">
+			<h2>Our team</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, rerum quaerat debitis. Quaerat, laudantium, eligendi, dignissimos repellat nemo ipsam inventore officia earum ipsa tempora voluptatum dicta. Possimus, voluptatum ullam non?</p>
+		</article>
+	</div>
+	
+</body>
+</html>

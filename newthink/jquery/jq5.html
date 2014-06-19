@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-2.1.js"></script>
+</head>
+<body>
+	
+		<script>
+
+			$('#randPara').before('<span>before</span>');
+
+			$('<span>Insert before</span>').insertBefore('#randPara');
+			$('<span>Prepend</span>').prependTo('#randPara');
+			$('<span>Append</span>').appendTo('#randPara');
+
+			$('<span>Append</span>').append('<span>Append</span>');
+			$('<span>Insert After</span>').insertAfter('<span>Insert after</span>');
+
+			$('#randPara').after('<span>after</span>');
+
+			$('#deleteSpan').bind('click', deleteSpan);
+
+
+			function deleteSpan() {
+				$('span').remove(':contains("Append")');
+			}
+
+		</script>
+
+
+
+	<div><h3>Playing With Text</h3></div>
+
+ 
+
+<div>
+
+<h3 id="h3Tag">H3 Tag</h3>
+
+</div>
+
+<br />
+
+ 
+
+<div id="randPara">
+
+<p id="firstP">The First Paragraph<p>
+
+</div>
+
+ 
+
+<br /><br />
+
+ 
+
+<form action="">
+
+<button type="button" id="deleteSpan">Delete Spans</button>
+
+</form>
+
+ <br />
+
+</body>
+</html>

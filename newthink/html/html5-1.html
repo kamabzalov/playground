@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="modernizr.custom.22845.js"></script>
+
+<style>
+	#canvasNum1 {
+		background-color: green;
+	}
+</style>
+
+<script type="text/javascript">
+	window.onload = function () {
+		myCanvasApp();
+	}
+
+	function myCanvasApp(){
+		if (!isCanvasSupported()) {
+			return;
+		}
+		var myCanvasNum1 = document.getElementById('canvasNum1');
+		myCanvasNum1.style.background = "black";
+		myCanvasNum1.style.width = "600px";
+		myCanvasNum1.style.height = "600px";
+
+		myCanvasNum1.width = "600";
+		myCanvasNum1.height = "600";
+
+		myCanvasNum1.style.border = "2px dotted #0000";
+
+		var canvasDraw1 = myCanvasNum1.getContext("2d");
+		if (canvasDraw1 == null) {
+			return;
+		}
+
+		canvasDraw1.beginPath();
+
+		canvasDraw1.lineWidth = 10;
+		canvasDraw1.strokeStyle = "purple";
+		canvasDraw1.moveTo(25,25);
+		canvasDraw1.lineTo(300, 300);
+		canvasDraw1.lineTo(300, 25);
+		canvasDraw1.lineCap = 'round';
+		canvasDraw1.lineJoin = 'bevel';
+
+		canvasDraw1.closePath();
+		canvasDraw1.stroke();
+
+		canvasDraw1.save();
+
+		//// -----------------
+		canvasDraw1.beginPath();
+
+		canvasDraw1.lineWidth = 15;
+		canvasDraw1.strokeStyle = "green";
+		canvasDraw1.moveTo(100,25);
+		canvasDraw1.lineTo(400, 350);
+		canvasDraw1.lineTo(400, 25);
+		canvasDraw1.lineCap = 'round';
+		canvasDraw1.lineJoin = 'bevel';
+		
+		canvasDraw1.closePath();
+		canvasDraw1.restore();
+		canvasDraw1.stroke();
+
+		canvasDraw1.clearRect(5, 5, 595, 595);
+
+		canvasDraw1.beginPath();
+
+		var degreeToDraw = 90;
+		var radianToDraw = (Math.PI / 180) * degreeToDraw;
+
+		canvasDraw1.arc(300, 300, 200, 0, radianToDraw, true);
+		canvasDraw1.closePath();
+		canvasDraw1.fillStyle = "red";
+		canvasDraw1.fill();
+		canvasDraw1.stroke();
+
+		var stringToDraw = "Sample string";
+		canvasDraw1.font = "40pt arial";
+		canvasDraw1.fillStyle = "red";
+		canvasDraw1.strokeStyle = "black";
+
+		canvasDraw1.fillText(stringToDraw, 100, 100);
+
+		canvasDraw1.lineWidth = 12;
+		canvasDraw1.strokeText(stringToDraw, 100, 100);
+
+		var textMeasure = canvasDraw1.measureText(stringToDraw);
+
+		var widthOfText = textMeasure.width;
+
+		canvasDraw1.fillText(widthOfText, 200, 200);
+
+		/*canvasDraw1.fillStyle = "green";
+		canvasDraw1.fillRect(10,10,200,200);
+
+		canvasDraw1.lineWidth = 5;
+		canvasDraw1.strokeStyle = '#ccc';
+		canvasDraw1.strokeRect(10,10,200,200);
+
+		canvasDraw1.clearRect(10,10,100,100);
+
+		var gradientSamp = canvasDraw1.createlinearGradient(10,10,200,200);
+		gradientSamp.addColor(0, 'blue');
+		gradientSamp.addColor(1/3, 'red');
+		gradientSamp.addColor(2/3, 'green');
+
+		canvasDraw1.fillStyle = gradientSamp;
+		canvasDraw1.fillRect(10,10,200,200);
+
+		var gradientRadial = canvas.createRadialGradient(100, 100, 100, 50);
+
+		gradientRadial.addColor(0, 'white');
+		gradientRadial.addColor(1, 'blue');
+
+		canvasDraw1.fillStyle = gradientRadial;
+
+		canvasDraw1.arc(100, 100, 70, 0, 2*Math.PI);
+		canvasDraw1.fill(); */
+
+	}
+
+	function isCanvasSupported(){
+		return Modernizr.canvas;
+	}
+</script>
+	<title>Document</title>
+</head>
+<body>
+	<canvas id="canvasNum1" width="500" height="400">You browser doesn't support HTML 5</canvas>
+</body>
+</html>

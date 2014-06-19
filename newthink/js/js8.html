@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+
+		function divideMe (helpId) {
+			var topVar = document.getElementById("topvar").value;
+			var botVar = document.getElementById("botvar").value;
+			console.log(helpId);
+
+			try {
+				if (!topVar || !botVar) {
+					throw new Error("Ошибка ввода");
+				} else if (isNaN(topVar) || isNaN(botVar)) {
+					throw new Error("Ошибка ввода в поле");
+				} else if (botVar == 0) {
+					throw new Error ("На нуль делить нельзя");
+				}
+
+				if (helpId != null) {
+					while (helpId.firstChild)
+						helpId.removeChild(helpId.firstChild);
+				}
+
+				var answer = topVar + "/" + botVar + "=" + topVar/botVar;
+				helpId.appendChild(document.createTextNode(answer));
+			}
+			catch (errMsg) {
+				if (helpId != null) {
+					while (helpId.firstChild)
+						helpId.removeChild(helpId.firstChild);
+				}
+
+				helpId.appendChild(document.createTextNode(errMsg));
+			}
+		}
+
+
+	</script>
+
+	<div>
+		Enter the number
+		<input type="text" id="topvar" name="topvar" size="10"/> <br>
+		<input type="text" id="botvar" name="botvar" size="10" onblur="divideMe(document.getElementById('answer'))"/> <br>
+		<span id="answer"></span>
+	</div>
+
+</body>
+</html>

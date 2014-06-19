@@ -1,0 +1,6 @@
+<!ELEMENT poster EMPTY>
+<!ATTLIST poster 
+			href CDATA #IMPLIED
+			poster width CDATA #IMPLIED
+			poster height CDATA #IMPLIED
+			poster show_id IDREF #IMPLIED>

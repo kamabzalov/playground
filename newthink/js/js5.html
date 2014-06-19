@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<span id="spanEx" onClick="editNodeText('spanEx', 'New text is herer')">Change this text</span><br>
+
+	<div id="divEx" onClick="editNodeText2('divEx', 'This is new text')">
+		<b>Bold text</b>
+		<i>Italic text</i>
+	</div>
+	
+	<script>
+
+		function editNodeText (id, newText) {
+			var node = document.getElementById(id);
+
+			while(node.firstChild)
+
+				node.removeChild(node.firstChild);
+				console.log(node.firstChild);
+			
+
+			node.appendChild(document.createTextNode(newText));
+
+			document.getElementById(id).style.color = "green";
+			document.getElementById(id).style.top = "1000px";
+		}
+
+		function editNodeText2 (id, newText) {
+			var node = document.getElementById(id);
+			node.removeChild(node.childNodes[0]);
+			node.childNodes[2].nodeValue = newText;
+
+			var newNode = document.createElement('hr');
+			node.appendChild(newNode);
+
+			var random = document.createTextNode("Hello");
+			node.appendChild(random);
+
+		}
+
+	</script>
+
+</body>
+</html>

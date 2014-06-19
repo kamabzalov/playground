@@ -1,0 +1,11 @@
+%poster;
+
+<!ELEMENT viewers (#PCDATA)>
+<!ATTLIST viewers units (thousand | million) #IMPLIED>
+
+<!ELEMENT end_date (#PCDATA)>
+<!ELEMENT next_episode (#PCDATA)>
+
+<!ENTITY great "This is show was great">
+
+<!ENTITY tv_disclaimer system "tvshowsdis.ent">

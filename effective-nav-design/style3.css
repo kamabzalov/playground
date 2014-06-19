@@ -1,0 +1,55 @@
+body {
+	font: 14px Arial, Helvetica, sans-serif;
+}
+
+div.left-sidebar {
+	float: left;
+	width: 300px;
+	padding: 10px;
+}
+
+div.body-content {
+	float: left;
+	padding: 10px;
+	width: 640px;
+}
+
+ul.subnav li {
+	margin: 10px 0px;
+}
+
+ul.main-nav, ul.subnav {
+	list-style-type: none;
+	padding: 0;
+}
+
+ul.subnav li a {
+	color: #525252;
+	font-size: 16px;
+	text-decoration: none;
+}
+
+ul.subnav li a:hover {
+	color: #747474;
+}
+
+ul.main-nav > li> a {
+	display: block;
+	margin-top: -10px;
+	width: 260px;
+	height: 60px;
+}
+
+ul.main-nav > li:first-child >a {
+	margin-top: 0;
+}
+
+ul.main-nav li ul.subnav {
+	padding-top: 10px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+.left-sidebar nav {
+
+}

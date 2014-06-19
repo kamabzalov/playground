@@ -88,3 +88,31 @@ nav ul.main-nav > li {
 .nav-desc {
 	color: #ccc;
 }
+
+nav ul.main-nav li ul.subnav {
+	padding: 5px 10px;
+	border-top: 1px solid #353535;
+	position: absolute;
+	left: -9999px;
+	top: 57px;
+	background-color: #575757;
+	width: 185px;
+}
+
+nav ul.main-nav li ul.subnav li {
+	list-style-type: disc;
+	list-style-position: inside;
+	padding: 0.8em 0;
+}
+
+nav ul.main-nav li ul.subnav a {
+	color: #ccc;	
+}
+
+nav ul.main-nav li ul.subnav a:hover {
+	color: #fff;	
+}
+
+nav ul.main-nav > li:hover ul.subnav {
+	left: 0;
+}

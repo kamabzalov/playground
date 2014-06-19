@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+
+		var regEx = /[0-9]{1,5}\s[A-Z]{2}\b[a-z]{2,}/;
+
+		var reg = new RegExp("\d{1,5}\s[A-Z]{2}\b[a-z]{2,}");
+
+		var longStr = "Derek 123 Main St. Pittsburgh 15457 (412)-555-5555 dbana@aol";
+
+		document.write(longStr.search(/[A-Za-z]{1,15}\s/) + "<br />");
+
+		document.write(longStr.search(/[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}/) + "<br />");
+
+		document.write(longStr.replace(/\d{5}/, "55555") + "<br />");
+
+		matchArray = longStr.match(/\d{4,5}/g);
+		document.write(matchArray + "<br />");
+
+		var regNew = /\d{3,5}/;
+		document.write((regNew instanceof RegExp) + "<br />");
+
+		var regMatch = regNew.exec(longStr);
+
+		document.write(regMatch + "<br />"); 
+		document.write(regMatch.index + "<br />"); 
+
+
+	</script>
+
+</body>
+</html>

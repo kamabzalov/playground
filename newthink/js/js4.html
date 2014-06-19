@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+
+		var arr1 = new Array();
+		arr1[0] = "Kamil";
+		arr1[1] = 2;
+		arr1[2] = 3;
+
+		document.write("String " + arr1.join(" ") + "<br />");
+		document.write("SLice " + arr1.slice(0, 2) + "<br />");
+		document.write("reversed " + arr1.reverse() + "<br />");
+
+
+		var list = [2,8,1,4,7,8];
+
+		document.write("Sort " + list.sort() + "<br />");
+		document.write("Spliced " + list.splice(0, 3) + "<br />");
+		document.write("Array after splice " + list + "<br />");
+		document.write("Replace array " + list.splice(0, 3, 9, 10, 11) + "<br />");
+		document.write("Array after splice " + list + "<br />");
+
+
+		var multi = [[1,2,3,4,5],[6,7,8,9,10]];
+
+		document.write(multi[1][3] + "<br />");
+
+
+		for (var i=0; i<multi.length; i++) {
+			for (var j=0; j<multi[i].length; j++) {
+				document.write(multi[i][j] + "<br />");
+			};
+		}
+
+		function addThese (num1, num2) {
+			return num2+num1;
+		}
+
+		document.write(addThese(2,4) + "<br />");
+
+		function addMany (a,b,c,d,e,f) {
+			var i = 1;
+			var sum = 1;
+			document.write(arguments.length + "<br />");
+
+			while (i < arguments.length) {
+				sum = sum + arguments[i];
+				i++;
+			}
+			document.write(sum + "<br />");
+		}
+
+		addMany(1,3,1,2,4,5);
+
+		var scope = 1;
+
+		function fun () {
+			document.write( scope + "<br />");
+			var scope = 2;
+			document.write(scope + "<br />");
+			return true;
+		}
+
+		fun();
+		document.write( scope + "<br />");
+
+		/*for (i in arr1) {
+			document.write(arr1[i] + "<br />");
+		}
+
+		document.write(arr1.length + "<br />");
+
+		var arr2 = new Array("Sally", "2012", "txt");
+		var arr3 = ["Sally", "12", "12"];
+
+		arr4 =	arr2.concat(arr3); 
+
+
+		for (i in arr4) {
+			document.write(arr4[i] + "<br />");
+		} */
+
+
+
+	</script>
+
+</body>
+</html>

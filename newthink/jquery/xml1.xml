@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
+
+<tvshows>
+	<show>
+		<name>Simpsons</name>
+		<release>1989</release>
+		<end_date>2100</end_date>
+		<network country="US">FOX</network>
+		<poster href="http://ua-simpsons.ru/wp-content/gallery/gomer-simpson-1/45878_gomer_simpson_beg_zheltyj_golyj_1600x1200_www-gdefon-ru_.jpg"></poster>
+		<viewers units="millions">8.9</viewers>
+	</show>
+
+	<show>
+		<name>Football</name>
+		<release>1876</release>
+		<end_date>5000</end_date>
+		<network country="International">world</network>
+		<poster href="http://i.telegraph.co.uk/multimedia/archive/02558/football_2558845b.jpg"></poster>
+		<viewers units="billions">3.9</viewers>
+	</show>
+
+	<show>
+		<name>Дом 2</name>
+		<release>2003</release>
+		<end_date>2110</end_date>
+		<network country="Russia">ТНТ</network>
+		<poster href="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQk50hDwmhiVnjN_tKP_OQeVrgtIq7CzbIZ1NIRQUu7XXMv-ztB"></poster>
+		<viewers units="millions">8.9</viewers>
+	</show>
+</tvshows>

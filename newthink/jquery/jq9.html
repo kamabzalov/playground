@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery.js"></script>
+</head>
+<body id="theBody">
+	
+
+	<script>
+
+		$("document").ready(function(){
+
+			$('#oneButton').bind('click', getInfoFromServer);
+			$('#twoButton').bind('click', getDblFromServer);
+			$('#threeButton').bind('click', getXmlFromServer);
+
+		});
+
+		function getInfoFromServer() {
+			$.ajax({
+				type: "GET",
+				url: "textFromServer.txt",
+				success: postToPage
+			});
+		}
+
+		function postToPage(data, status) {
+			$("#first").text(data);
+		}
+
+		function getDblFromServer() {
+			$("span").load("getDouble.php",
+			$("#theForm").serializeArray());
+		}
+
+		function getXmlFromServer() {
+			$.ajax({
+				type: "GET",
+				url: "customers.xml",
+				datatype: "xml",
+				success: postToPageTwo
+			});
+		}
+
+		function postToPageTwo(data) {
+			$(data).find('customer').each(function(){
+				var id = $(this).attr('id');
+				var firstName = $(this).find('firstName').text();
+				var lastName = $(this).find('lastName').text();
+				var street = $(this).find('street').text();
+				var city = $(this).find('city').text();
+				var zip = $(this).find('zip').text();
+
+				$('<div class="firstName"></div>').html(firstName).appendTo("#customers");
+				$('<div class="lastName"></div>').html(lastName).appendTo("#customers");
+				$('<div class="street"></div>').html(street).appendTo("#customers");
+				$('<div class="city"></div>').html(city).appendTo("#customers");
+				$('<div class="zip"></div>').html(zip).appendTo("#customers");
+			});
+		}
+
+	</script>
+
+
+<div><h3>Playing with Server Data</h3></div>
+
+<div>
+
+<h4><strong>Message from the Server:</strong></h4>
+
+<p id="first">Waiting for Message</p>
+
+</div>
+
+<form id="theForm">
+
+<button type="button" id="oneButton">Get Text</button><br />
+
+<div>
+
+<h4>Double Number on the Server:</h4>
+
+<span></span><br />
+
+</div>
+
+<input type="text" name="data" id="data"></input>
+
+<button type="button" id="twoButton">Double Number</button><br /><br />
+
+<button type=”button” id="threeButton">Get XML Data</button>
+
+</form>
+
+<div>
+
+<h4><strong>XML Data from the Server:</strong></h4>
+
+</div>
+
+<div id="customers">Customer Information</div>
+
+
+</body>
+</html>

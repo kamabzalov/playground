@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+		document.write(Number.MAX_VALUE+"<br />");
+
+		var samp_str = "Hello <br />";
+		document.write(samp_str);
+
+		var first = "first";
+		var second = "second";
+
+		var combined = first + " " + second + "<br />";
+		document.write(combined);	
+		document.write("Length " + combined.length + "<br />");
+		document.write("Last character" + combined.charAt(combined.length - 1) + "<br />");
+		document.write("Index of T is" + combined.indexOf('t') + "<br />");
+
+
+
+		var a = 5;
+		var str = "10";
+		var total = a + str;
+		document.write(total + "<br />");
+
+		var total1 = str * a ;
+		document.write(total1 + "<br />");
+
+		total2 = a + Number(str);
+		document.write(total2 + "<br />");
+		
+		var a2 = String(a);
+		document.write(a2 + "<br />");
+		document.write(a + a2 + "<br />")
+
+		var b = 3.1415926535;
+		var strFloat = b.toFixed(5);
+		document.write(strFloat + "<br />") 
+		document.write(parseInt(strFloat) + "<br />")
+
+		 boolVal = Boolean(23);
+		 document.write(boolVal + "<br />")
+
+		 var rand = 5
+		 var rand1 = 10; 	
+		 document.write("5>10 - " + (rand > rand1) + "<br />");
+		 document.write("5<10 - " + (rand < rand1) + "<br />");
+
+		 var arr = new Array("car", "truck", "byke", "bus");
+		 document.write("the second item: " + arr[1] + "<br />");
+
+		 for (i in arr) {
+		 	document.write("Array " + arr[i] + "<br />");
+		 }
+
+		 var f = (5<10) ? "5 меньше 10" : "5 больше 10";
+		 document.write(f + "<br />");
+
+		 if (5 > 10) {
+		 	alert("Чушь");
+		 } else if (5<10){
+		 	document.write("5 меньше 10" + "<br />");
+		 } else {
+		 	alert ("Молодец");
+		 }
+
+		 var city = "Москва";
+
+		 switch (city) {
+		 	case "Москва":
+		 		alert("Moscow");
+		 		break;
+		 	case "London":
+		 		alert("London");
+		 		break;
+		 	default:
+		 		alert("I don't know");
+		 		break;		
+		 }
+
+		 var count = 1;
+		 while (count <= 10) {
+		 	if (count == 6){
+		 		break;
+		 		}
+		 	if (count % 2) {
+		 		count++;
+		 		continue;
+		 	}
+		 	document.write(count + "<br />");
+		 	count ++ ;
+		 }
+		
+		 var g = 25;
+
+		 do {
+		 	document.write(g + "<br />");
+		 	g --;
+		 } while (g > 10);
+
+		 for (var count = 0; count <= 10; count++) {
+		 	document.write(count + "<br />");
+		 }		 
+
+	</script>
+</body>
+</html>
