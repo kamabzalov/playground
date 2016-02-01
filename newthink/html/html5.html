@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<!--<meta http-equiv="refresh" content="3" url="redirect.html">-->
+	<title>Сайт</title>
+	<meta name="robots" content="index, follow">
+	<base href="http://localhost/playground/">
+	<link rel="stylesheet" href="style.css">
+	<link rel="icon" href="favicon.ico"/>
+	<style>
+		h1 {
+			color: purple;
+		}
+
+		a:hover {
+			color: blue;
+		}
+
+		a:active {
+			colo:red;
+		}
+
+		a:visited {
+			color: #989898;
+		}
+
+		body {
+			background-color: #e1e1e1;
+		}
+
+		div#wrapper {
+			margin: auto;
+			background: white;
+			width: 800px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	
+	<div id="wrapper">
+		<noscript>Please enable js</noscript>
+		<h1>Change with a click</h1>
+
+		<a href="mailto:ok_kam90@mail.ru">почта</a>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis perferendis ipsum recusandae, ab a, cumque sint accusantium reiciendis. Consectetur deserunt dolor porro culpa obcaecati repudiandae ad dolorum cupiditate impedit suscipit.</p>
+		<hr>
+
+		<blockquote cite="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius vitae perspiciatis, porro itaque quia recusandae consectetur obcaecati quas a laboriosam consequuntur ab error, suscipit, voluptates sit necessitatibus. Voluptatibus, quasi, iure.</blockquote>
+
+		<q cite="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia illum unde, consequatur natus reprehenderit animi delectus quibusdam modi expedita molestiae voluptatibus fuga non, repellendus fugit, nemo dignissimos incidunt. Id, iste.</q>
+
+		<pre>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis distinctio temporibus aut aperiam dolore est labore consequatur alias illum adipisci, ea accusantium hic aliquid, quos, error commodi veniam placeat saepe.</pre>
+
+		<code>
+			echo "hello world";
+		</code>
+
+		<img src="https://placekitten.com/g/200/300" alt="" id="danceImg"><br>
+
+		<a href="javascript:toggleImg()">Toggle</a>
+
+		<b>Bold</b>
+		<strong>Strong</strong>
+		<em>Em</em>
+		<i>Italic</i>
+		<ins>Delete</ins>
+		<samp>Some text</samp>
+
+		<abbr title="help">abbr.</abbr>
+
+		<dfn>definition</dfn> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi nemo in assumenda nam maxime explicabo aperiam impedit rem, minima molestias, porro reprehenderit temporibus doloremque unde adipisci fugiat odit perferendis eaque. <br>
+
+		<kbd>enter something</kbd>
+
+		&cent;
+		&pound;
+		&yen;
+		&copy;
+
+		4<sup>2</sup> <br>	
+		CO<sub>2</sub><br>
+		<bdo dir="rtl">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia non esse quasi voluptatem numquam cupiditate, eaque eius illo, pariatur ratione maiores asperiores minus iure. Aliquam nisi esse ut necessitatibus culpa.</bdo><br>
+
+		<ruby>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio optio maiores nulla, tempora facere neque voluptas vitae quaerat delectus placeat odio itaque nesciunt dolorem culpa, incidunt dolores, atque impedit! Consectetur.</ruby>
+
+		<a href="#">link</a>
+
+		<img src="https://placekitten.com/g/600/125" alt="" id="danceImg" usemap="#map"/>
+
+		<!--<object data="Small.pdf" type="application/pdf" width="750" heigh="400"></object>
+
+		<object data="html5.html" type="text/html" width="750" heigh="400"></object>
+
+
+		<iframe src="http://vk.com/video90759251_169145525" width="560" height="315" frameborder="0"></iframe>-->
+
+		<script>
+
+			function init() {
+				var canvas = document.getElementById("canvas");
+
+				if(canvas.getContext) {
+					var ctx = canvas.getContext("2d");
+
+					ctx.fillStyle = "#FAEBD7";
+
+					ctx.fillRect(0,0, canvas.width, canvas.height);
+
+					ctx.fillStyle = "#AF002A";
+
+					ctx.fillRect(100, 100, 50, 50);
+
+					ctx.lineWidth = 5;
+					ctx.strokeStyle = "#a4c639";
+					ctx.fillStyle = "#0030BF";
+
+					ctx.beginPath();
+
+					ctx.arc(200, 200, 50, 0, Math.PI*2, true);
+
+					ctx.fill();
+
+					ctx.fillStyle = "#3B444B";
+
+					ctx.beginPath();
+
+					ctx.moveTo(350, 200);
+
+					ctx.lineTo(400, 50);
+					ctx.lineTo(450, 200);
+					ctx.closePath();
+					ctx.fill();
+
+					ctx.strokeStyle = "#AAC639";
+					ctx.beginPath();
+					ctx.moveTo(350, 200);
+					ctx.lineTo(400, 50);
+					ctx.lineTo(450, 200);
+					ctx.closePath();
+					ctx.stroke();	
+
+					var lineGrad = ctx.createLinearGradient(400, 100, 500, 500);
+
+					lineGrad.addColorStop(0, "#8DB600");
+					lineGrad.addColorStop(0.5, "#9966cc");
+					lineGrad.addColorStop(1, "#7c0a02");
+
+					ctx.fillStyle = lineGrad;
+					ctx.fillRect(400, 100, 100, 100);	
+
+					var radGrad = ctx.createRadialGradient(275, 250, 5, 290, 260, 100);
+					radGrad.addColorStop(0, "red");
+					radGrad.addColorStop(1, "white");
+
+					ctx.fillStyle = radGrad;
+					ctx.arc(250,250,50,0, Math.PI*2, true);
+					ctx.fill();
+
+					ctx.font = "bold 40px Arial";
+
+					ctx.fillStyle="#8db600";
+					ctx.fillText("Hello", 100, 100);
+
+					ctx.strokeStyle = "black";
+					ctx.lineWidth = 1;
+					ctx.strokeText("Hello", 100, 100);
+
+					ctx.shadowOffsetX = 2;
+					ctx.shadowOffsetY = 2;
+					ctx.shadowBlur = 3;
+					ctx.shadowColor = "black";
+					ctx.fillText("Hello", 100, 100);
+
+					ctx.lineWidth = 20;
+					ctx.strokeStyle = "purple";
+					ctx.beginPath();
+					ctx.moveTo(200,150);
+					ctx.lineCap = "butt";
+					ctx.lineTo(200,250);
+					ctx.stroke();
+
+					ctx.beginPath();
+					ctx.arc(270, 270, 50, 0, 3.14, true);
+					ctx.stroke();
+
+					ctx.strokeStyle = "red";
+					ctx.beginPath();
+
+					ctx.moveTo(300,150);
+					ctx.quadraticCurveTo(350, 250, 450, 250);
+					ctx.stroke();
+
+					ctx.strokeStyle = "blue";
+					ctx.beginPath();
+					ctx.moveTo(450, 250);
+					ctx.bezierCurveTo(550,250,450, 100, 550, 100);
+
+					ctx.stroke();
+
+					ctx.fillStyle = "purple";
+					ctx.fillRect(200, 200, 100, 100);
+
+					ctx.rotate(Math.PI / 4);
+					ctx.scale(0.5,1);
+					ctx.fillRect(400, 50, 100, 100);
+
+				}
+			}
+
+			onload = init;
+
+		</script>
+
+		<script>
+
+			function init() {
+				if(navigator.geolocation) {
+					document.getElementById("notify").innerHTML = "We are trying find you";
+
+				navigator.geolocation.getCurentPosition(successFunc, errorFunc);
+				} else {
+					document.getElementById("notify").innerHTML = "Your browser doesn't support GEO";
+				}
+			}
+
+			function successFunc(pos) {
+					var lat = pos.coords.latitude;
+					var long = pos.coords.longtitude;
+					document.getElementById("notify").innerHTML = "You are at lat:" + lat + " long: " + long;
+				}	
+
+			function errorFunc(pos) {
+				document.getElementById(notify).innerHTML = "Error";
+			}
+
+			function setName() {
+
+				var userName = document.getElementById("yourName").value;
+
+				if(userName === "") return false;
+
+				localStorage.setItem("name", userName);
+				document.getElementById("yourName").value = "Name saved";
+
+			}	
+
+			function getName() {
+				if(localStorage.getItem("name" === null)) return false;
+				document.getElementById("yourName").value = "Name stored: " + localStorage.getItem("name");
+			}
+
+			function removeName() {
+				if(localStorage.getItem("name") === null) return false;
+
+				localStorage.removeItem("name");
+
+				document.getElementById("yourName").value;
+			}
+
+			onload = init;
+
+		</script>
+
+		<canvas id="canvas" width="800" height="300"></canvas>
+
+		<p id="notify"></p>
+		<input type="text" id="yourName" size="50">
+		<button onClick="setName()">Store</button>
+		<button onClick="getName()">Get</button>
+		<button onClick="removeName()">Remove</button>
+
+
+	</div>
+
+	<script>
+		function toggleImg() {
+			var img  = document.getElementById("danceImg");
+
+			var isImgVisible = img.style.visbility != "visible";
+
+			img.style.visibility = isImgVisible ? "visible" : "hidden";
+		}
+	</script>
+
+
+</body>
+</html>

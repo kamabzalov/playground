@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+
+	<div id="wrapper">
+		<h1>Hello</h1>
+
+		<p><img id="logo" src="https://placekitten.com/g/250/300" alt="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci nostrum accusantium voluptas sit. Necessitatibus natus ad ipsa minima delectus dolorum, <em>velit sequi</em> debitis <a href="">ut soluta</a> porro praesentium laudantium, temporibus, neque? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea quaerat perferendis minima veritatis quidem harum officiis doloribus? Dolor veritatis, aperiam. Ex perferendis facere eveniet, praesentium cupiditate officiis. Voluptas, nihil nemo.</p>
+		<p class="two">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur odio assumenda culpa tenetur eveniet numquam dolor consequuntur! Fuga, quidem ratione ullam dolores, pariatur tempore fugit, est illo voluptate consectetur ducimus!</p>
+		<button id="getData">Get Data</button>
+		<a href="#">Ссылка</a>
+
+		<a href="https://www.google.ru/">Google</a>
+
+		<ul>
+			<li>Item 1</li>
+			<li>Item 2</li>
+			<li>Item 3</li>
+			<li name="item">Item 4</li>
+		</ul>
+
+		<input type="text" id="myName"/>
+
+		<ol>
+			<li>one</li>
+			<li>two</li>
+			<li>three</li>
+			<li>four</li>
+		</ol>
+	</div>
+
+	<input type="text" id="clickX">
+
+	<input type="text" id="clickY">
+
+	<input type="text" id="moveX">
+
+	<input type="text" id="moveY">
+
+	<input type="text" id="keyPressed">
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+
+<script>
+	$("document").ready(function(){
+		$("#wrapper").css("width", 500);
+		$("#wrapper").css("margin", "auto");
+		$("#logo").css("float", "left");
+		$(".two").css("color", "purple");
+		$(".two").css({
+			"background": "url('path/to/img') repeat-y"
+		});
+
+		$("a").css("color", "red");
+
+		$("#wrapper p").css("color", "green");
+
+		$("em + a").css("color", "orange");
+
+		$("p > em").css("font-size", "20px");
+
+		$("ul li:nth-child(2)").css("color", "red");
+
+		$("li[name]").html("super code");
+
+		$("input[type='text']#myName").val("Derek");
+
+		$("a[href*='google']").css("font-weight", "bold");
+
+		$("img[alt^='test']").css({
+			"border-color": "black",
+			"border-width": "1px"
+		});
+
+		$("img").width(150).height(150);
+
+		$("a[href$='pdf']").css("color", "red");
+
+		$("#tableData tr:even").css("color", "red");
+
+		$("#tableData tr:first").css("color", "red");
+
+		$("li:not(:contains(and))").css("color", "red");
+
+		$("a:contains(test)").css("color", "red");
+
+		$("p:has(i)").hide();
+
+		//alert($("p:has(em)").html());
+
+		//$("p").html("<i>normal text</i>").show();
+
+		$("p").append("Kamil Abzalov");
+		$("p").prepend("Prepend text");
+
+		$("p").before("<p> lorem </p>");
+		$("p").after("<p> lorem </p>");
+
+		$("a").click(function(){
+			$(this).remove();
+		});
+
+		/*$("img").click(function() {
+			$(this).replaceWith('<p>hello, Kamil</p>');
+		});*/
+
+		/*бежит по массиву объектов*/
+		$("ol li").each(function(index){
+			var inputList = $(this).val();
+
+			$(this).val("new" + ", ");
+		});
+
+		$("ol li").addClass("test");
+
+		$(".test").css("color", "blue");
+
+		/*переключает css класс при клике*/
+		$("ol li").click(function() {
+			$(this).toggle("testing");
+			var bgColor = $(this).css("background-color");
+			$("input[type='text'").val(bgColor);
+		});
+
+		/*$("img").click(function() {
+			var imgName = $(this).attr("src");
+			alert(imgName);
+		});*/
+
+		$("a").hover(function(){
+			$(this).css("color", "green");
+		}, function(){
+			$(this).css("color", "blue");
+		});
+
+		$("ul li").dblclick(function(){
+			$(this).css("color", "blue");
+		});
+
+		$(document).click(function(e){
+			$("#clickX").val(e.pageX);
+			$("#clickY").val(e.pageY);
+		});
+
+		$(document).mousemove(function(e){
+			$("#moveX").val(e.screenX);
+			$("#moveY").val(e.screenY);
+		});
+
+		$(document).keypress(function(e){
+			var keyPressed = String.fromCharCode(e.which);
+			$("#keyPressed").val(keyPressed);
+		});
+
+		$("#inputFormEvent").blur(function(){
+			$("#formEvent").text("Left input");
+			});
+
+			$("inputFormEvent").change(function(){
+				$("#formEvent").text("Element changed");	
+			});
+		
+		$("inputFormEvent").focus(function(){
+				$("#formEvent").text("Focused");	
+			});
+
+		$("inputFormEvent").select(function(){
+				$("#formEvent").text("Select");	
+			});
+
+		function showWhatTouched(e) {
+				alert(e.data.message);
+		}
+
+		var msg = {message:"Hello"};
+
+		$("#bestSelling").on("mouseover", msg, showWhatTouched);
+
+
+		var accidentImgs = ["1.jpg", "2.jpg", "3.jpg", "4.jpg"];
+
+		var focusImg = 1;
+
+		$("#accident").click(function(){
+			var image = accidentImgs[focusImg];
+			focusImg++;
+			if(focusImg > 3) {
+				focusImg = 0;
+			}
+
+			$("#accident").attr("src", image);
+		});
+
+		/*$("p").click(function() {
+			$(this).hide();
+		});*/
+
+		/*$("img").click(function() {
+				$(this).fadeOut(2000);
+		});*/
+
+		/*$("p").fadeToggle(2000);*/
+
+
+		/*$("img").click(function(){
+			$(this).fadeTo("slow", .50);
+		});*/
+
+		/*$("img").click(function(){
+			$(this).slideUp(2000);
+		});*/
+
+		$("p").click(function(){
+			$(this).css("position", "relative");
+			$("p").animate(
+			{
+				left: 300,
+				opacity: 0.6,
+				"font-size": "22px",
+				width: 200
+			}, 2000, "easeInQuad");
+		});
+
+	});
+</script>
+
+<ul class="menu">
+	<li>пункт 1</li>
+	<li>пункт 2</li>
+	<li>пункт 3</li>
+	<li>пункт 4</li>
+</ul>
+
+<script>
+	$("document").ready(function(){
+			$(".menu").menu({
+				position: {
+					my: "center top",
+					at: "center bottom"
+				}
+			});
+
+			$("#accordion").accordion({
+				animate: 1500,
+				active: 1,
+				collapsible: true,
+				event: "click",
+				heightStyle: "content"
+			});
+
+			$("#tabs").tabs({
+				event: "click",
+				show: "fadeIn",
+				hide: "fadeOut",
+				active: 3,
+				collapsible: true,
+				heightStyle: "auto"
+			});
+
+			$("#dialog").dialog({
+				draggable: true,
+				resize: false,
+				height: 300,
+				width: 300,
+				modal: true,
+				position: {
+					my: "center top",
+					at: "center bottom",
+					of: "#openDialog"
+				},
+				show: 1000,
+				hide: 1000,
+				autoOpen: false,
+				buttons: {
+					"Ok": function  () {
+						$("#openDialog").html("You clicked ok");
+						$(this).dialog("close");
+					},
+					"CANCEL": function() {
+						$("#openDialog").html("You clicked cancel");
+						$(this).dialog("close");
+					}
+				}
+			});
+
+			$("#openDialog").click(function() {
+				$("#customDialog").dialog("open");
+			});
+
+			$("#title").tooltip();
+
+			$("#present").selectmenu({
+				width: 200
+			});
+
+			$("#birth").datepicker({
+				changeMonth: true,
+				changeYear: true,
+				dateFormat: "dd-MM-YYYY",
+				numberOfMonths: 1,
+				maxDate: 365,
+				minDate: -3650
+			});
+
+			$("#radioPresents").buttonset();
+
+			$("#randButton").button();
+
+			$("#sampForm").draggable();
+
+			$("#toy1").draggable();
+
+			$("#cartDiv").droppable({
+				activeClass: "highlight",
+				hoverClass: "hoverDroppable",
+				drop: function(event, ui) {
+					ui.helper.hide("fade");
+					var itemAlt = $(ui.draggable)
+				.attr("alt");
+				alert("Item added: " + itemAlt);
+			},
+			accept: ".toy",
+			disabled: false,
+			activate: function(event, ui) {
+				$("cartMsg").remove();
+				$(this).append("<span>Drop toy</span>");
+			}
+			});
+	});
+</script>
+
+<script>
+	$("document").ready(function() {
+		$("#oneButton").on("click", getInfoFromServer);
+		$("#twoButton").on("click", getDblFromServer);
+		$("#threeButton").on("click", getXmlFromServer);
+	});
+
+	function grtInfoFromServer() {
+		$.ajax({
+			type: "GET",
+			url: "textFromServer.txt",
+			success: postToPage
+		});
+	}
+
+	function postToPage(data, statis) {
+		$("#first").text(data);
+	}
+
+	function getDblFromServer() {
+		$("span").load("getDouble.php", $("#theForm").serializeArray());
+	}
+
+	function getXmlFromServer() {
+		$.ajax({
+			type: "GET",
+			url: "customer.xml",
+			datatype: "xml",
+			success: postToPageTwo
+		});
+	}
+
+	function postToPageTwo(data) {
+		$(data).find("customer").each(function(){
+			var id = $(this).attr('id');
+			var firstName = $(this).find('firstName').text;		
+		})
+	}
+</script>
+
+
+</body>
+</html>

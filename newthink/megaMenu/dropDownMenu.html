@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+			* {
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				padding: 0;
+				margin: 0;
+			}
+
+			body {
+				background: #f5f5f5;
+			}
+
+			.wrapper {
+				font-size: 1.6em;
+				padding: 2em;
+				margin: 0 auto;
+				width: 95%;
+				background-color: white;
+			}
+
+			.nav {
+				background: white;
+				width: 100%;
+				height: 43px;
+				position: relative;
+				border: 1px solid #b2beb5;
+			}
+
+			.nav li {
+				list-style: none;
+				float: left;
+				text-align: center;
+				width: 10%;
+			}
+
+			.nav > li > a {
+				color: #536267;
+				font-weight: bold;
+				font-size: .7em;
+				text-decoration: none;
+				line-height: 43px;
+				padding: 0 20px;
+				height: 43px;
+				text-transform: uppercase;
+			}
+
+			.nav > li:hover {
+				border-right: 1px solid #b2beb5;
+				border-left: 1px solid #b2beb5;
+			}
+
+			.nav > li:hover > div {
+				display: block;
+			}
+
+			.nav > li > div {
+				position: absolute;
+				left: 0;
+				top: 41px;
+				display: none;
+				background-color: white;
+				padding: 10px;
+				box-shadow: 2px 4px 4px rgba(0,0,0, 0.4);
+				overflow: hidden;
+			}
+
+			.nav-main {
+				width: 100%;
+				border: 1px solid #b2beb5;
+			}
+
+			.nav-divider {
+				display: inline-block;
+				width: 1.8%;
+			}
+
+			.nav-focus-art {
+				display: inline-block;
+				width: 11.5%;
+				vertical-align: top;
+				text-align: center;
+			}
+
+			.nav-art-author, .nav-art-title {
+				display: inline-block;
+				padding: 10px 0;
+			}
+
+			.nav-art-author {
+				font-size: 0.9em;
+				color: red;
+			}
+
+			.nav-art-title {
+				font-size: 1.4em;
+			}
+
+			.nav-art-image {
+				display: inline-block;
+			}
+
+			.nav-divider-2 {
+				display: inline-block;
+				width: 3.8%;
+			}
+
+			.nav-headlines {
+				display: inline-block;
+				width: 34.5%;
+				font-size: 1.2em;
+				font-weight: bold;
+				text-align: left;
+				padding-right: 3px;
+			}
+
+			.nav-headLine-link {
+				border-bottom: 1px solid #b2beb5;
+				padding: 10px 0;
+			}
+
+			.nav-headLine-link:last-child {
+				border-width: 0;
+			}
+
+			.nav-links {
+				display: inline-block;
+				width: 11.95%;
+				vertical-align: top;
+				text-align: left;
+			}
+
+			.nav-link {
+				padding-bottom: 20px; 
+			}
+
+			.nav-headLine-link:first-child {
+				color: red;
+			}
+        </style>
+    </head>
+    <body>
+        
+        <div class="wrapper">
+            
+			<ul class="nav">
+				<li><a href="#">News</a></li>
+				<li><a href="#">Metro</a>
+					<div class="nav-main">
+						<div class="nav-divider"></div>
+							<div class="nav-focus-art">
+								<img src="http://lorempixel.com/113/111/sports/" alt="" class="nav-art-image">
+								<span class="nav-art-author">Eric Schmidt</span>
+								<span class="nav-art-title">We messe up the comments</span>
+							</div>
+							<div class="nav-divider-2"></div>
+							<div class="nav-focus-art">
+								<img src="http://lorempixel.com/113/111/sports/" alt="" class="nav-art-image">
+								<span class="nav-art-author">Kamil Abzalov</span>
+								<span class="nav-art-title">Why I can't answer comments</span>
+							</div>
+
+							<div class="nav-divider-2"></div>
+							
+							<div class="nav-headlines">
+								<div class="nav-headLine-link">
+									More Headlines
+								</div>
+								<div class="nav-headLine-link">
+									Yes, we can
+								</div>
+								<div class="nav-headLine-link">
+									More Headlines
+								</div>
+								<div class="nav-headLine-link">
+									Yes, we can
+								</div>
+								<div class="nav-headLine-link">
+									More Headlines
+								</div>
+								<div class="nav-headLine-link">
+									Yes, we can
+								</div>
+							</div>
+							<div class="nav-divider-2"></div>
+
+							<div class="nav-links">
+								<div class="nav-link">
+									More in news
+								</div>
+								<div class="nav-link">
+									Sport news
+								</div>
+								<div class="nav-link">
+									World news
+								</div>
+								<div class="nav-link">
+									Weather news
+								</div>
+							</div>
+
+							<div class="nav-links">
+								<div class="nav-link">
+									More in news
+								</div>
+								<div class="nav-link">
+									Sport news
+								</div>
+								<div class="nav-link">
+									World news
+								</div>
+								<div class="nav-link">
+									Weather news
+								</div>
+							</div>
+					</div>
+				</li>
+				<li>Arts</li>
+				<li>Business</li>
+			</ul>
+
+        </div>
+        
+    </body>
+</html>

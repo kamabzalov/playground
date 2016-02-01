@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="handlebars.js"></script>
+</head>
+<body>
+	
+<div id="kamilData">
+	<script>
+		var myInfo = "<p>My name is {{name}} and I live in {{city}}</p>";
+
+		var template = Handlebars.compile(myInfo);
+
+		var data = template({name: "Kamil", city: "Moscow"});
+
+		document.getElementById("kamilData").innerHTML += data;
+	</script>
+</div>
+
+<div id="quoteData">
+	<script id="quoteTemplate" type="text/x-handlebars-template">
+		<h3>Favorite {{name}}</h3>
+		<ol>
+		{{#each quotes}}
+		<li>{{quote}}</li>
+		{{/each}}
+		</ol>
+
+		{{{yougi}}}<br><br>
+
+		{{makeLink "Museum" "http://kamil-abzalov.ru"}}<br>
+
+		{{changeColor "makeRed" color="red"}} <br>
+
+		{{sayHelo}}
+	</script>
+
+	<script>
+		var quoteInfo = document.getElementById("quoteTemplate").innerHTML;
+
+		var template = Handlebars.compile(quoteInfo);
+
+
+		Handlebars.registerHelper("makeLink", function(text, url) {
+			text = Handlebars.Utils.escapeExpression(text);
+			url = Handlebars.Utils.escapeExpression(url);
+
+			var theLink = '<a href="'+ url +'">' + text + '</a>';
+
+			return new Handlebars.SafeString(theLink);
+		});
+
+		Handlebars.registerHelper("changeColor", function(text, options) {
+			text = Handlebars.Utils.escapeExpression(text);
+			if(options.hash.color === "red") {
+				return new Handlebars.SafeString("<span class='redText'>" + text + "</span>");
+			} else if(options.hash.color === "blue") {
+				return new Handlebars.SafeString("<span class='blueText'>" + text + "</span>");
+			} else {
+				return new Handlebars.SafeString("<span class='greenText'>" + text + "</span>");
+			}
+		});
+
+		Handlebars.registerHelper("sayHello", function (options) {
+			switch(options.data.lang) {
+				case "spanish":
+					return "Hola";
+					break;
+				case "french":
+					return "bonjour";
+					break;
+				default: 
+					return "hello";
+			}
+		})
+
+		var quoteData = template ({
+			name: "Kamil",
+			quotes:[
+				{quote: "123"},
+				{quote: "456"},
+			],
+			yougi: '<i>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero possimus, maxime odio inventore veritatis itaque impedit voluptates sapiente in, non sed ducimus reiciendis beatae a quibusdam iure quas est laboriosam. </i>'
+		}, {data:{
+			lang: "spanish"
+			}
+		});
+
+
+		document.getElementById("quoteData").innerHTML += quoteData;
+	</script>
+</div>
+</body>
+</html>

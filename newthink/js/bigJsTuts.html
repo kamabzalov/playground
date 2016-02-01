@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="jstut.js"></script>
+        <style>
+            body{
+				font-size: 1.6em;
+            }
+
+            .hidden {
+            	display: none;
+            }
+	
+            .show {
+            	display: inline;
+            }
+
+            button {
+				border: 2px solid black;
+				background: #e5e4e2;
+				font-size: .5em;
+				font-weight: bold;
+				color: black;
+				padding: .8em 2em;
+				margin-top: .4em;
+
+            }
+        </style>
+    </head>
+    <body>
+     
+    	 <p id="sayHello"></p>   
+
+    	 <script>
+         /*Условие*/
+    	 	/*var yourName = prompt("What is your name?");
+
+    	 	if(yourName != null) {
+    	 		document.getElementById("sayHello").innerHTML = "Hello " + yourName;
+    	 	} else {
+    	 		alert("Please enter name");
+    	 	}*/
+
+            /*работа с числами*/
+            /*document.write("5+4= ", 5+4, "<br/>");
+            document.write("5-4= ", 5-4, "<br/>");
+            document.write("5*4= ", 5*4, "<br/>");
+            document.write("5/4= ", 5/4, "<br/>");
+            document.write("5%4= ", 5%4, "<br/>");
+            document.write("5+4= " + 5 +4, "<br/>");
+            document.write("Max Num= ", Number.MAX_VALUE, "<br/>");
+            document.write("Min Num= ", Number.MIN_VALUE, "<br/>");
+
+            precisionTest = 0.100000000000001;
+            document.write(precisionTest + 0.100000000000001, "<br>");
+
+            var balance = 1563.87;
+
+            document.write("Payment: ", (balance/12), "<br>");
+
+            var randNum = 5;
+
+            /*document.write("randNum ++=", randNum++, "<br>");
+            document.write("randNum ++=", ++randNum, "<br>");*/
+
+            /*document.write("randNum+=5 = ", randNum +=5, "<br>");
+
+            document.write("3+2*5 = ", 3+2*5, "<br>");
+            document.write("(3+2)*5 = ", (3+2)*5, "<br>");
+
+            document.write("Math.E = ", Math.E, "<br>");
+            document.write("Math.PI = ", Math.PI, "<br>");
+            document.write("Random # (1-10) = ", Math.floor((Math.random() * 10) + 1), "<br>");
+            document.write("Convert String: ", Number("3.14"), "<br />");
+            document.write("Convert int: ", parseInt("314"), "<br />");
+            document.write("Convert float: ", parseFloat("3.14"), "<br />");*/
+
+            /*Работа со строками*/
+            /*var randStr = "A long" + "string that " + "Lorem ipsum dolor sit amet, consectetur adipisicing elit.";
+
+            document.write("String length", randStr.length + "<br>"); 
+            document.write("Index for \"goes\" : ",  randStr.indexOf("sit"), "<br>");
+            document.write("randStr.slice(19, 23)" + "<br />");
+            document.write(randStr.slice(19,23) + "<br />");   
+            document.write(randStr.substr(19,4) + "<br />");
+            document.write(randStr.replace("long", "путин - хуйло ") + "<br>");  
+            document.write("At  index 2: ", randStr.charAt(3), "<br>"); 
+            var randStrArray = randStr.split();
+
+            randStr = randStr.trim();
+            document.write(randStr.toUpperCase() + "<br>");
+            document.write(randStr.toLowerCase() + "<br>");*/
+
+            /*Стили*/
+            /*var strToStyle = "Random String";
+
+            document.write(strToStyle.bold());*/
+
+            /*Логические операторы*/
+            /*
+            var age = 8;
+
+            if((age >=5) && (age <=6)) {
+                document.write("little");
+            } else if (age > 18) {
+                document.write("пора в институт");
+            } else {
+                document.write("go to grade" + "<br>");
+            }
+
+            document.write("true | false ", true || false, "<br>");
+            document.write("!true ", !true, "<br>" );
+            document.write("\"5\" == 5 = ", ("5" == 5) + "<br>");
+            document.write("\"5\" === 5 = ", ("5" === 5) + "<br>");*/
+
+            /*Условия и switch*/
+            /*var age = 5;
+
+            /*switch(age) {
+                case 0:
+                    document.write("Go to garder" + "<br>");
+                    break;
+                case 1:  
+                  document.write("Go to school" + "<br>");
+                    break;
+                default:
+                    document.write("Go to anywhere" + "<br>");
+            }
+
+            var canIvOTE = (age>=18) ? true : false;*/
+
+            /*Циклы*/
+
+           /*var i = 1;
+
+            while (i<=10) {
+                document.write(i + "<br>");
+                i++;
+            }
+
+            do{
+                var guess = prompt("Guess number between 1 and 25")
+            } while(guess !=15)
+                alert("you guessed 15");
+
+            for( j=0; j<=20; j++) {
+                if((j % 2) === 0) {
+                    continue;
+                }  
+
+                if( j === 15) {
+                    break;
+                }
+
+                document.write(j + "<br>"); 
+            }
+
+            var customer = {name: "Bob", address: "123 main", balance: 505.5};
+
+            for(k in customer) {
+                document.write(customer[k] + "<br>");
+            }*/
+
+            /*Массивы*/
+            /*var tomSmith = ["Tom Smith", "123 main", 150];
+
+            document.write(tomSmith[1] + "<br>");
+
+            tomSmith[3] = "ok_kam90@mail.ru";
+            tomSmith.splice(2,1, "Pittsburg", "PA");    
+            tomSmith.splice(4,1);
+            document.write("Array: ", tomSmith.valueOf(), "<br>");
+             document.write("Array: ", tomSmith.join(", "), "<br>");
+             delete tomSmith[3];
+             tomSmith.sort();
+             document.write(tomSmith + "<br>");
+
+             var numbers = [4,3,9,12,3,45];
+
+             numbers.sort(function(x,y) {
+                    return y-x;
+                });
+             document.write(numbers.toString() + "<br>");
+
+             var combinedArray = numbers.concat(tomSmith);
+
+             document.write(combinedArray + "<br>");                
+
+             tomSmith.pop();
+             document.write(tomSmith + "<br>");
+             tomSmith.push("555-512", "Us");
+             document.write(tomSmith + "<br>");
+
+             tomSmith.shift();
+             document.write(tomSmith + "<br>");
+
+             tomSmith.unshift("Tom");
+             document.write(tomSmith + "<br>");
+
+             for(i=0; i<tomSmith.length; i++) {
+                document.write(tomSmith[i] + "<br>");                
+             }*/
+
+             /*Функции*/
+
+             /*var randArray = [1,2,3,4,5];
+
+             document.write("in array: ", inArray(randArray,6), "<br>");
+
+              document.write("var2 ", var2, "<br>");
+
+
+              document.write("2 * 16 = ", multiply(times2, 16), "<br>"); 
+
+              var triple = function(num) {
+                  return num * 3;
+              } 
+
+              document.write("3 * 45 = ", multiply(triple, 45), "<br>");
+
+               document.write("sum = ", getSum(5,6), "<br>");
+
+               document.write("new array = ", times2([1,2,3,4,5]).toString(), "<br>");
+
+               document.write("Factorial = ", factorial(5), "<br>");*/
+
+    	 </script>    
+        
+         <!--События-->
+         <!--<a href="JavaScript:void(0)" onClick="alert('Hello');">say hello</a>
+
+         <a href="#" onClick="openAlert('Hi how are you');">say hello</a>
+
+         <a href="JavaScript:void(0)" onmouseover="this.style.color='red'" onmouseout="this.style.color='blue'" ondblclick="this.text='double click'" onmousedown="this.text='text down'" onmouseup="this.text='text up'">say hello</a>
+
+         <input type="text" id="randInput" onChange="var dataEntered=document.getElementById('randInput').value; alert('User typed ' + dataEntered)">  
+
+         <form action="#" id="sampleForm">
+           <input type="text" id="charInput">
+           <p id="keyData">Key data here</p>
+           <input type="submit" value="Submit">
+           <input type="reset" value="Reset">
+         </form><br>
+
+         <img src="https://placekitten.com/g/250/300" alt="" id="logo">
+
+         <button id="logoButton">Get logo</button>
+
+         <input type="text" id="mouseInput" size="30"><br>
+
+         Mouse X: <input type="text" id="mouseX"><br>
+         Mouse Y: <input type="text" id="mouseY"><br>
+
+        <script>
+          document.getElementById('charInput').onkeypress = function (event) {
+            var char = getCharacter(event || window.event);
+            if(!char) return false;
+            document.getElementById('keyData').innerHTML = char + " was clicked";
+            return true;
+          }
+
+          document.getElementById('charInput').onfocus = function(event) {
+                document.getElementById('keyData').innerHTML = "Input gained focus";
+          }
+
+          document.getElementById('charInput').onselect = function(event) {
+                document.getElementById('keyData').innerHTML = "Input gained selected";
+          }
+
+          document.getElementById('logoButton').onclick = function(event) {
+                document.getElementById('logo').className = "show";
+          }
+
+          document.getElementById('logo').onmouseover = function(event) {
+                document.getElementById('logo').src = "https://placekitten.com/g/450/300";
+                document.getElementById('mouseInput').value= "Mouse over";
+          }
+
+          document.getElementById('logoButton').onclick = function(event) {
+                document.getElementById('logo').className = "hidden";
+          }
+
+          document.body.onmousemove = function(e) {
+            e = e || window.event;
+
+            var pageX = e.pageX;
+            var pageY = e.pageY;
+
+            if(pageX === undefined) {
+                pageX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft; 
+                pageY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop; 
+            }
+
+            document.getElementById('mouseX').value = pageX;
+            document.getElementById('mouseY').value = pageY;
+          }-->
+
+        </script>
+
+        <!--Стили-->    
+        <!--<div id="sampDiv">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem ducimus placeat molestiae, animi dolorum. Quibusdam rem, ullam esse perferendis, doloremque amet veritatis nostrum. Esse reiciendis, dignissimos mollitia maiores eligendi accusamus?
+        </div>
+
+        <button id="changeColor">change color</button>
+        <button id="changeBackImg">chang background image</button>
+        <button id="changeBorderStyle">chang border style</button>
+        <button id="changeBorderWidth">chang border width</button>
+        <button id="changeBorderColor">chang border color</button>
+
+        <script>
+          document.getElementById('changeColor').onclick = function (event) {
+              document.getElementById('sampDiv').style.backgroundColor = "#efefef";
+          }
+
+          document.getElementById('changeBorderStyle').onclick = function (event) {
+              document.getElementById('sampDiv').style.borderStyle = "solid";
+          }
+
+          document.getElementById('changeBorderWidth').onclick = function (event) {
+              document.getElementById('sampDiv').style.borderWidth = "thick";
+          }
+        </script>-->
+
+        <!-- DOM -->
+
+        <!--<div id="sample">
+          Lorem ipsum dolor sit amet, <p>consectetur</p> adipisicing elit. <p>Quisquam</p> ullam possimus eligendi repellat cupiditate voluptatibus, <b>soluta</b> numquam voluptas nihil accusantium ab blanditiis corrupti cum, quae ut! Dicta, perspiciatis asperiores ad?
+        </div>
+
+        <img id="logo" src="https://placekitten.com/g/250/300" alt=""/>
+
+        <button id="goToGoogle">Google</button>
+        <button id="forwardPage">forward page</button>
+        <button id="backPage">back page</button>
+        <button id="reload">reload</button>
+
+        <script>
+          document.write("Current url: ", window.location.href, "<br>");
+
+          document.write("Current HOST: ", window.location.hostname, "<br>");
+
+          document.write("Current path: ", window.location.pathname, "<br>");
+
+          document.getElementById('goToGoogle').onclick = function(event) {
+              window.location.href = "http://google.com";
+          }
+
+          document.getElementById('forwardPage').onclick = function(event) {
+              history.forward();
+          }
+
+          document.getElementById('backPage').onclick = function(event) {
+              history.back();
+          }
+
+          document.getElementById('reload').onclick = function(event) {
+              window.location.reload(true);
+          }
+
+          var pElement = document.getElementsByTagName('p');
+
+          pElement[1].style.backgroundColor="red";
+
+          var samp = document.getElementById('sample');
+
+
+          var logo = document.getElementById('logo');
+
+          document.write("Logo has alt: ", logo.hasAttribute("alt"), "<br>");
+
+          logo.setAttribute('alt', "attralt");
+
+          document.write("Logo alt value: ", logo.getAttribute("alt"), "<br>");
+
+          var attrList = document.getElementById('logo').attributes;
+
+          for (var i = 0; i < attrList.length; i++) {
+            document.write("Attr: ", i, ": ", attrList[i].nodeName, "<br>");
+          };
+
+          var par = document.createElement("p");
+
+          par.setAttribute("id", "parId");
+
+          par.innerHTML = "LOREM";
+
+          samp.appendChild(par);
+
+          samp.insertBefore(par, samp.childNodes[0]);
+
+        </script>-->
+
+        <script>
+
+        /*ООП*/
+          /*var cust1 = {
+            name: "Kamil",
+            street: "123 Main",
+            city: "Klyazma",
+            state: "RU",
+            email: "ok_kam90@mail.ru",
+            balance: 120.50,
+            payDownBal: function (paid) {
+                  this.balance -= paid;
+            },
+            addTo: function (change) {
+              this.balance += change; 
+            }
+          };
+
+          document.write("Customer name: ", cust1.name, "<br>" );
+
+          cust1.street = "215 main";
+
+          document.write("Customer street: ", cust1.street, "<br>" );
+
+          cust1.country = "Russia";
+
+          document.write("Customer country: ", cust1.country, "<br>" ); 
+          
+          delete cust1.country;
+
+          for (var prop in cust1) {
+            if (cust1.hasOwnProperty(prop)) {
+                document.write(prop, "<br>");
+            };
+          }
+
+          document.write("name in cust1: ", "name" in cust1, "<br>");  
+
+          function getInfo(cust) {
+                 return cust1.name + " живет в " + cust1.street + "<br>";
+               }
+
+          document.write(getInfo(cust1));
+
+          cust1.payDownBal(20.50);
+          cust1.addTo(19);
+
+
+          document.write(cust1.balance + "<br>");*/
+
+          /*Конструктор*/
+          /*function Customer(name, street, city, email) {
+              this.name = name;
+              this.street = street;
+              this.city = city;
+              this.email = email;
+
+              this.payDownBal = function (pay) {
+                  this.balance -= pay;
+              };
+              this.addBal = function (add) {
+                  this.balance -= add;
+              };
+          } 
+
+          var customer = new Customer("Kamil", "Read Square", "Moscow", "ok_kam90@mail.ru", 0);
+
+          customer.addBal(15);
+
+          Customer.prototype.isCreditAvail = true;
+
+          Customer.prototype.toString = function() {
+              return this.name + " " + this.balance;
+          }
+
+          document.write(customer.toString());*/
+
+        
+          var custArray = ["Tom", "Bob", "Sally", "Sue"];
+
+          var getCust = function(index) {
+              if(index > custArray.length) {
+                throw new RangeError("Index must be >=0 ");
+              } else {
+                return custArray[index];
+              }
+          }
+
+          try {
+            document.write(getCust(5) + "<br>");
+          } catch(ex) {
+            if(ex instanceof RangeError) {
+                document.write(ex.message + "<br />");
+            }
+          }
+
+
+        </script>
+  
+    </body>
+</html>
+

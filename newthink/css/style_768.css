@@ -1,0 +1,43 @@
+.wrapper {
+	width: 768px;
+}
+
+#logo {
+	display: inline-block;
+}
+
+.sb-item {
+	height: 62px;
+	width: 48px;
+	margin-bottom: 0;
+	padding-top: 50px;
+	display: inline;
+	margin-left: 35px;
+}
+
+.sb-icon-list {
+	margin-bottom: 50px;
+	width: 540px;
+	display: inline-block;
+}
+
+.list-span {
+	padding-left: 0;
+}
+
+#social {
+	display: none;
+}
+
+aside {
+	float: none;
+}
+
+main {
+	float: none;
+}
+
+
+
+
+
