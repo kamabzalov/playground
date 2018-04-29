@@ -1,51 +1,66 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
-<html>
-    <head>
-        <title></title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <style>
-            .container{
-                width: 800px;
-                margin: auto;
-                overflow: hidden;
-            }
-            
-            li{
-                float: left;
-                margin-right: 20px;
-                margin-bottom: 20px;
-                list-style: none;
-                width: 200px;
-                height: 200px;
-                line-height: 200px;
-                text-align: center;
-                font-size: 50px;
-                font-weight: bold;
-                background: #e3e3e3;
-            }
-            
-            li:nth-child(3n+1){
-                background: green;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-                <li>6</li>
-                <li>7</li>
-                <li>8</li>
-                <li>9</li>
-            </ul>
-        </div>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 800px;
+            background: #e3e3e3;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        li {
+            float: left;
+            margin-right: 20px;
+            list-style: none;
+            width: 200px;
+            height: 200px;
+            background: red;
+            margin-bottom: 20px;
+            line-height: 200px;
+            font-size: 50px;
+            font-weight: bold;
+        }
+
+        li:first-child {
+            background: green;
+            border-top: none;
+        }
+
+        li:last-child {
+            background: yellow;
+            border-bottom: none;
+        }
+
+        li:nth-child(6) {
+            background: orangered;
+        }
+
+        li:nth-child(2n) {
+            background: navy;
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 1</li>
+            <li>Item 1</li>
+            <li>Item 1</li>
+            <li>Item 1</li>
+            <li>Item 1</li>
+            <li>Item 1</li>
+            <li>Item 1</li>
+            <li>Item 1</li>
+        </ul>
+    </div>
+    
+
+</body>
 </html>
