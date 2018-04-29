@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            width: 400px;
+            margin: 50px auto;
+            font-family: sans-serif;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        figure {
+            margin: 0;
+            position: relative;
+            border: 5px solid white;
+            box-shadow: 0 0 4px rgba(0, 0, 0, .3);
+            display: block;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        figure:hover figcaption {
+            opacity: 1;
+            transform: rotate(0);
+        }
+
+        figcaption {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .1);
+            color: white;
+            transition: all .4s ease-in;
+            transition-delay: .5s;
+        }
+
+        figure img {
+            transition: all 1.5s;
+        }
+
+        figure:hover img {
+            transform: scale(1.1);
+            transition: all 1.5s;
+        }
+
+        figcaption h3, figcaption p {
+            padding: 10px 20px;
+            margin-bottom: 0;
+            left: 100%;
+            position: relative;
+        }
+
+        figure:hover h3,
+        figure:hover p {
+            left: 0;
+        }
+
+        figcaption h3 {
+            margin-top: 20px;
+            background: black;
+            transition: all .4s;
+            transition-delay: 1s;
+        }
+
+        figcaption p {
+            transition: all .4s;
+            transition-delay: 1.2s;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <figure>
+        <img src="http://placekitten.com/400/350" alt=""/>
+        <figcaption>
+            <h3>Hello</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima eveniet nostrum enim nobis officia eum? Distinctio aliquid ut quas recusandae eveniet porro facere. Quasi vero dolorum facilis quia delectus dignissimos!</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam ducimus autem provident voluptates reprehenderit, nesciunt eligendi fuga rerum qui iure praesentium est atque cupiditate possimus numquam asperiores vel sit a.</p>
+        </figcaption>  
+
+    </figure>
+    
+</body>
+</html>

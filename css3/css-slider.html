@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        body {
+            width: 200px;
+            margin: auto;
+            font-family: sans-serif;
+            text-align: center;
+        }
+        h2 {
+            font-size: 23px;
+        }
+        .slide-wrap {
+            width: 200px;
+            overflow: hidden;
+        }
+        ul, li {
+            margin: 0;
+            padding: 0;
+        }
+        .slide-wrap ul {
+            width: 10000px;
+            overflow: hidden;
+            position: relative;
+            -webkit-animation: slide 20s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-timing-function: ease-out;
+        }
+
+        .slide-wrap li {
+            float: left;
+            list-style: none;
+            position: relative;
+        }
+
+        .slide-wrap h5 {
+            position: absolute;
+            bottom: 4px;
+            background: rgba(0, 0, 0, .3);
+            color: white;
+            padding: 10px 0px;
+            margin-bottom: 0;
+            width: 100%;
+            -webkit-animation: headings 20s;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-timing-function: ease-out;
+        }
+
+        .slide-wrap ul:hover, .slide-wrap ul:hover h5  {
+            -webkit-animation-play-state: paused;
+        }
+
+        @-webkit-keyframes slide{
+            10% {
+                left: 0;
+            }
+
+            15%, 30% {
+                left: -200px;
+            }
+
+            35%, 50% {
+                left: -400px;
+            }
+
+            55%, 70% {
+                left: -600px;
+            }
+
+            75%, 90% {
+                left: -800px;
+            }
+
+            93% {
+                left: 0;
+            }
+        }
+
+        @-webkit-keyframes headings{
+            10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90% {
+                bottom: 4px;
+            }
+
+            13%, 33%, 53%, 73%, 93% {
+                bottom: -200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <h2>100% CSS slider</h2>
+
+    <div class="slide-wrap">
+            <ul>
+                    <li>
+                        <a href="#"><img src="https://placekitten.com/200/300" alt=""></a>
+                        <h5>Title</h5>
+                    </li>
+                    <li>
+                        <a href="#"><img src="https://placekitten.com/200/300" alt=""></a>
+                        <h5>Title</h5>
+                    </li>
+                    <li>
+                        <a href="#"><img src="https://placekitten.com/200/300" alt=""></a>
+                        <h5>Title</h5>
+                    </li>
+                    <li>
+                        <a href="#"><img src="https://placekitten.com/200/300" alt=""></a>
+                        <h5>Title</h5>
+                    </li>
+                    <li>
+                        <a href="#"><img src="https://placekitten.com/200/300" alt=""></a>
+                        <h5>Title</h5>
+                    </li>
+                </ul>
+    </div>
+   
+
+
+</body>
+</html>

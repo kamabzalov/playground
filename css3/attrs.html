@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        a[href="http://kamil-abzalov.ru"] {
+            color: aquamarine;
+        }
+
+         a[href*=".ru"] {
+            color: red;        
+        } 
+
+        a[href$=".pdf"] {
+            color: purple;
+        }
+
+        a[href^="http"] {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    
+    <ul>
+        <li><a href="http://kamil-abzalov.ru">link</a></li>
+        <li><a href="http://ya.ru">link</a></li>
+        <li><a href="file.pdf">link</a></li>
+    </ul>
+
+</body>
+</html>
