@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+	<script>
+		jQuery(document).ready(function($) {
+
+			(function($){
+				
+				var o = $({});
+				$.each({
+					trigger: 'publish',
+					on: 'subscribe',
+					off: 'unsubscribe'
+				}, function(key, val) {
+					jQuery[val] = function () {
+						o[key].apply(o, arguments);
+					};
+				});
+
+			})(jQuery);
+			
+			$.getJSON('https://api.vk.com/method/users.get?user_ids=210700286&callback=?', function(results) {
+				$.publish('vk/results', results);
+					/*$(document).trigger('vk/results', results);*/
+					
+			});
+
+			/*$(document).on('vk/results', function(results) {
+				console.log(results);
+			});*/
+
+			$.subscribe('vk/results', function(results) {
+				console.log(results);
+				$('body').html(
+					$.map(results.response, function(obj, index){
+						return obj.text;
+					}).join('')
+				);	
+			});
+
+
+		});
+	</script>
+</body>
+</html>

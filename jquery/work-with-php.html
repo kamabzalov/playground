@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+
+	<!-- functions.php -->
+	<!--
+
+		function isXHR() {
+			return isset($_SERVER['HTTP_X_REQUESTED_WITH']);
+		} 
+	
+		function connect() {
+			global $pdo;
+			$pdo = new PDO("mysql:host=localhost;dbname=sakilla", "root", "root");
+		}
+
+		function getActorsByLastName($letter) {
+			global $pdo;
+
+			$stmt = $pdo->prepare('SELECT actor_id, first_name, last_name FROM actor WHERE last_name LIKE :letter LIMIT 50');
+
+			$stmt->execute(array(':letter' => $letter . '%'));
+
+			return $stmt->fetchAll(PDO::FETCH_OBJ);
+		}
+
+		function getActorInfo($actor_id) {
+			global $pdo;
+
+			$stmt = $pdo->prepare('SELECT film_info, first_name, last_name FROM actor_info WHERE actor_id LIKE :actor_id LIMIT 1');
+
+			$stmt->execute(array(':actor_id' => $actor_id));
+
+			return $stmt->fetch(PDO::FETCH_OBJ);
+		}
+
+	-->
+
+	<!-- index.tmpl.php -->
+	<!--
+		<?php include 'header.php'; ?>
+			<h1>Searh by last name</h1>
+			<form id="actor-selection" action="index.php" method="post">
+				<select name="q" id="q">
+					<?php
+						$alphabet = str_split('abcdefghigklmnopqrstuvwxyz');
+						foreach($alphabet as $letter) {
+							echo "<option value='$letter'>$letter</option>";
+						}
+					?>
+				</select>
+				<button type="submit">Go</button>
+			</form>
+
+			<ul class="actors">
+				<?php foreach($actors as $a) 
+				{
+					echo "<li data-actor_id='{$a->actor_id}'><a href='actor.php?actor_id={$a->actor_id}'>{$a->first_name} {$a->last_name}</a></li>"
+				}
+				?>
+				<script id="actor_list_template" type="text/x-handlebars-template">
+					{{each this}}	
+					<li data-actor_id="{{actor_id}}">
+						<a href="actor.php?actor_id={{actor_id}}">{{fullName this}}</a>
+					</li>
+					{{/each}}
+				</script>
+			</ul>
+
+			<div class="actor_info">
+				<script id="actor_info_template" type="text/x-handlebars-template">
+				<p>{{info}}</p>
+				<span class="close">X</span>
+			</script>
+			</div>
+
+		<?php include 'footer.php'; ?>
+	-->
+
+
+	<!-- index.php -->
+	<!--
+		
+		<?php
+			require 'functions.php';
+			connect();
+			if(isXHR() && isset($_POST['q'])) {
+				echo json_encode(getActorsByLastName($_POST['q']));
+				return;
+			}
+			if(isset($_POST['q'])) {
+				$actors = getActorsByLastName($_POST['q']);
+				echo json_encode($actors);
+				return;
+
+			}
+
+			if(isXHR() && isset($_POST['actor_id'])) {
+				$info = getActorInfo($_POST['actor_id']);
+				echo $info->film_info;
+				return;
+			}
+		?>
+
+	-->
+
+	<!-- actor.php -->
+	<!--
+
+		<?php
+			require 'functions.php';
+			connect();
+
+			$info = getActorInfo($_GET['actor_id']);
+			include 'actor.tmpl.php';
+
+	-->
+
+	<!-- 'actor.tmpl.php -->
+	<!--
+		
+		<?php include 'header.php'; ?>
+			<?php
+				if ($info) {
+					echo "<h1>{$info->first_name} {$info->last_name}</h1>";
+				echo "<p>{$info->film_info}</p>";
+				} else {
+					echo "<p>No results</p>";
+				}
+				
+			?>
+
+			<p><a href="index.php">Back home</a></p>
+		<?php include 'footer.php'; ?>
+
+	-->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
+	<script>
+		var Actor = {
+			init: function(config) {
+				this.config = config;
+				this.setupTemplates();
+				this.bindEvents();
+				$.ajaxSetup({
+					url: 'index.php',
+					type: 'POST'
+				});
+				
+			}
+			bindEvents: function() {
+				this.config.letterSection.on('change', this.fetchActors);
+				this.config.actorsList.on('click', 'li', this.displayAuthorInfo);
+			},
+
+			setupTemplates: function() {
+				this.config.actorListTemplate = handlebars.compile(this.config.actorListTemplate);
+				this.config.actorInfoTemplate = handlebars.compile(this.config.actorInfoTemplate);
+				Handlebars.registerHelper('fullName', function(actor) {
+						return actor.first_name + '' + actor.last_name;
+				});
+			},
+
+			fetchActors: function() {
+				var self = Actors;
+				$.ajax({
+					url: 'index.php',
+					type: 'POST',
+					dataType: 'json',
+					data: self.config.form.serialize(),
+					success: function(results) {
+						self.config.actorList.empty();
+						if(results[0]) {
+							self.config.actorsList.empty().append(self.config.actorListTemplate(results));	
+						} else {
+							self.config.actorsList.append('<li>Nothing retun</li>;')
+						}
+						
+					}
+				});
+				
+				
+			},
+
+			displayAuthorInfo: function(e) {
+				var self = Actors;
+				var jqxhr = $.ajax({
+					data: {actor_id: $(this).data('actor_id')}
+				}).done(function(results){
+					self.config.actorInfo.html(self.config.actorInfoTemplate(info: results));
+				});
+				e.preventDefault();
+			}
+		};
+
+		Actors.init({
+			letterSection: $('#q'),
+			form: $('#actor-selection'),
+			actorListTemplate: $("#actor_list_template").html(),
+			actorInfoTemplate: $("#actor_info_template").html(),
+			actorList: $('ul.actors_list'),
+			actorInfo: $('.actor_info')
+		});
+	</script>
+
+</body>
+</html>

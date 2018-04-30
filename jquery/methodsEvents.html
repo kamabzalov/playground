@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<div class="container">
+	<h2>Click me</h2>
+	<h2>Click me</h2>
+	<h2>Click me</h2>
+	<h2>Click me</h2>	
+</div>
+
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<script>
+	/*$('h2').bind('click', function() {
+		console.log('clicked');
+		/*var cloned = $(this).clone();
+		console.log(cloned);*/
+		/*$(this).clone().appendTo('body');
+	});*/
+
+	$('h2').live('click', function() {
+		console.log('clicked');
+		$(this).clone().appendTo('body');
+	});
+
+	$('.container').delegate('h2', 'click', function() {
+		console.log('clicked');
+		$(this).clone().appendTo('container');
+	});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+	
+</head>
+<body>
+	
+	<input type="text" id="auto">
+
+	<div id="qunit"></div>
+
+	<script>
+		jQuery(document).ready(function($) {
+			var data = ["apples", "oranges", "bananas", "lemon"];
+			$("#auto").autocomplete({
+				source: data,
+				position: {
+					my: "left top",
+					at: "right top"
+				}
+			});
+
+			$("#myelem").position({
+				of: "#someotherelement",
+				my: "left top",
+				at: "right top"
+			})
+		});
+
+		/*Qunit section*/
+		function falsy(it) {
+			return it = false;
+		}
+
+		test("The falsy function", function(){
+			var value = falsy(true);
+			equal(value, false, "We expect the value to equal false");
+		});
+	</script>
+
+</body>
+</html>

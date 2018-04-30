@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		p {
+			margin-top: 0;
+		}
+	</style>
+</head>
+<body>
+	
+
+<h1>Click</h1>
+
+<div class="content">
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit voluptatem dicta delectus voluptatibus tempore, enim odio, culpa fugiat! Magnam iusto nemo eaque dolores omnis ratione quam quisquam id at aliquid.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus earum itaque aliquam, eius. Cumque maxime, consectetur rerum, nihil eveniet magnam error, repellendus ducimus ipsum veniam ratione, reiciendis quisquam sint amet!</p>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<script>
+	jQuery.fn.flash = function(speed, easing, callback) {
+		var $this = $(this);
+		return $this.slideToggle('500', function(){
+			$(this).delay(2000);
+		});
+		//return this.animate(props, speed, easing, callback);
+	};
+
+	$('h1').on('click', function() {
+		$(this).next('.content').flash();
+	});
+</script>
+
+</body>
+</html>

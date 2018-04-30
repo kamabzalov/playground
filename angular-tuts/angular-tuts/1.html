@@ -1,0 +1,26 @@
+<!-- В angulat 1.5 не работает без модуля -->
+<!DOCTYPE html>
+<html ng-app>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+
+        <div ng-controller="Ctrl">
+            <input type="text" ng-model="name">
+            <h1>{{name}}</h1>
+        </div>
+
+        <script src="angular.min.js"></script>
+        <script>
+            var Ctrl = function($scope) {
+                $scope.name = "Kamil";
+                $scope.$watch('name', function(){
+                    console.log(1);
+                })
+            }
+
+        </script>
+    </body>
+</html>

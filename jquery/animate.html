@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.content {
+			width: 400px;
+			background: red;
+			padding: 2em;
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="content">
+		<h1>Test</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id accusamus corporis, consequuntur modi blanditiis ea, molestiae eligendi laboriosam fuga et aliquam sit porro pariatur exercitationem saepe ut harum odit ipsa.</p>
+	</div>
+
+	<p><button>Click</button></p>
+	
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+	<script>
+
+	var box = $('div.content'),
+	winWidth = $(window).width() / 2 - box.outerWidth() / 2;
+	winHeight = $(window).height() / 2 - box.outerWidth() / 2;
+		
+	$('button').on('click', function(){
+		/*box.css({
+			'font-size': '+=5',
+			'color': 'white',
+		});*/
+
+		/*box.animate({
+			'font-size': '+=5',
+			'width': '+=300'
+		}, 300, 'swing', function(){
+			console.log('complete');
+		});*/
+
+		box.animate({
+			'left': winWidth,
+			'position': 'absolute'
+		})
+		.animate({
+			'top': winHeight	
+		}, 2000);
+
+	});
+
+	</script>
+</body>
+</html>

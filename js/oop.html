@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+
+	<script>
+
+	function Person(firstName, lastName) {
+		if(this === window) {
+			return new Person(firstName, lastName);
+		}
+		this.firstName = firstName;
+		this.lastName = lastName;
+		/*this.getFullName = function() {
+				return this.firstName + " " + this.lastName;
+			};
+		this.greet = function(person) {
+				if(person instanceof Person) {
+					return "Hello " + person.getFullName();
+				} else {
+					return "Hello, there!";
+				}
+				
+		};*/
+	}
+
+	Person.prototype.getFullName = function() {
+				return this.firstName + " " + this.lastName;
+			};
+	Person.prototype.greet = function(person) {
+				if(person instanceof Person) {
+					return "Hello " + person.getFullName();
+				} else {
+					return "Hello, there!";
+				}
+				
+		}
+
+	var marat = new Person("marat", "Abzalov");	
+
+	console.log(marat.getFullName());
+
+	function createPerson(firstName, lastName) {
+		return {
+			firstName: firstName,
+			lastName: lastName,
+			getFullName: function() {
+				return this.firstName + " " + this.lastName;
+			},
+			greet: function(person) {
+				if(typeof person.getFullName !== "undefined") {
+					return "Hello " + person.getFullName();
+				} else {
+					return "Hello, there!";
+				}
+				
+			}
+		};
+	}
+
+	var kamil = createPerson("Kamil", "Abzalov");
+	console.log(kamil.greet(kamil));
+	console.log(kamil.greet({}));
+
+		var person = {
+			firstName: "John",
+			lastName: "Doe",
+			getFullName: function() {
+				return this.firstName + " " + this.lastName;
+			}
+		};
+
+
+		
+
+		var person2 = {
+			firstName: "Jane",
+			lastName: "Doe",
+			getFullName: function() {
+				return this.firstName + " " + this.lastName;
+			}
+		};
+
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+	<style>
+		.box {
+			width: 300px;
+			height: 300px;
+			background-color: blue;	
+			border: 1px solid #000;
+		}
+
+		.class1 {
+			background-color: red;
+			border-radius: 300px;
+		}
+
+		.class2 {
+			background-color: green;
+			border-radius: 0;
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="box"></div>
+	<button id="go">GO</button>
+	<button id="add">Add</button>
+	<button id="remove">Remove</button>
+	<button id="toggle">Toggle</button>
+
+	<script>
+		jQuery(document).ready(function($) {
+			/*$("#go").click(function(){
+				$(".box").animate({
+					backgroundColor: "#ff0000"
+				});
+
+				$("#remove").click(function(){
+					$(".box").removeClass("class1", 1000);
+				});
+			});
+
+			var counter = 0;
+				addTheClass = false;
+				$("#toggle").click(function(){
+					if(counter < 4) {
+						++counter;
+						addTheClass = false;
+					} else {
+						counter = 0;
+						addTheClass = true;
+					}
+					$(".box").toggleClass("class1", addTheClass, 1000);
+				});*/
+
+
+			var switchTheClass = false;
+			$("#toggle").click(function(){
+				if(switchTheClass) {
+					switchTheClass = false;
+					$(".box").switchClass("class1", "class2", 1000);
+				} else {
+					switchTheClass = true;
+					$(".box").switchClass("class2", "class1", 1000);
+				}
+			});	
+
+		});
+
+	</script>
+
+</body>
+</html>

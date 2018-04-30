@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body data-ng-controller="Example">
+
+    <clicker on-click="handler()">{{message}}</clicker>
+
+        <script src="angular.min.js"></script>
+        <script>
+
+            angular.module('myApp', [])
+                    .directive('clicker', function(){
+                        return {
+                            restrict: 'E',
+                            replace: true,
+                            transclude: true,
+                            template: '<button ng-transclude></button>',
+                            link: function(scope, element, attrs) {
+                                element.bind('click', function(){
+                                    scope.$eval(attrs.click);
+                                });
+                            }
+                        };
+                    })
+                    .controller("Example", function($scope){
+                        $scope.message = "Hello"
+                        $scope.handler = function() {
+                            alert($scope.message);
+                        };
+
+
+                    });
+        </script>
+    </body>
+</html>

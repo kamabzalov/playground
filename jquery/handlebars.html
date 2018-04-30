@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<ul class="tweets">
+
+		<script id="template" type="text/x-handlebars-template">
+		{{#each this}}
+			<li>
+				<h2>{{fullName author}} {{#if age}}-<span>{{age}}</span>{{/if}}</h2>
+				<p>{{{tweet}}}</p>
+				{{#if quote}}
+					<h5>{{quote}}</h5>
+				{{else}}
+					<h5>not qoute</h5>
+				{{/if}}
+				</li>			
+		{{/each}}
+		</script>
+	
+	</ul>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+
+	<script>
+		jQuery(document).ready(function($) {
+
+			var data = [
+				{
+					author: 'Kamil Abzalov',
+					tweet: 'the best guy',
+					age: 26,
+					quote: '123'
+				},
+				{
+					author: 'Vladimir Putin',
+					tweet: '<strong>huylo</strong>'
+				},
+				{
+					author: {first: 'Roger', last: 'Federer'},
+					tweet: 'the best guy'
+				},
+			];
+
+			Handlebars.registerHelper('fullName', function(author){
+				return author.first + " " + author.last;
+			})
+
+			var temp = Handlebars.compile($("#template").html());
+			$('ul.tweets').append(temp(data));
+		});
+	</script>
+
+</body>
+</html>

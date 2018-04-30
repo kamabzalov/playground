@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+</head>
+<body>
+	
+	<div id="accordion">
+		<h3>One</h3>
+		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae fugiat, veniam deserunt adipisci blanditiis esse eaque soluta velit a, reiciendis est ut voluptate eveniet ullam corporis cum quasi facilis commodi?</div>
+
+		<h3>Two</h3>
+		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae fugiat, veniam deserunt adipisci blanditiis esse eaque soluta velit a, reiciendis est ut voluptate eveniet ullam corporis cum quasi facilis commodi?</div>
+
+		<h3>Three</h3>
+		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae fugiat, veniam deserunt adipisci blanditiis esse eaque soluta velit a, reiciendis est ut voluptate eveniet ullam corporis cum quasi facilis commodi?</div>
+	</div>
+
+	<button id="disable">Button</button>
+
+	<script>
+		jQuery(document).ready(function($) {
+			$("#accordion").accordion({
+				active: 1,
+				animate: {
+					easing: "linear",
+					duration: 100,
+					down: {
+						easing: 'easeOutBounce',
+						duration: 300
+					}
+				}, 
+				collapsible: true,
+				create: function() {
+					console.log(1);
+				}
+			});
+
+			$("#disable").on('click', function(){
+				$("#accordion").accordion("disable");
+			});
+		});
+	</script>
+
+</body>
+</html>

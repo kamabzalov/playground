@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+	<style>
+		.empty {
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	
+	<ul id="sort">
+		<li id="item-1">Item 1</li>
+		<li id="item-2">Item 2</li>
+		<li id="item-3">Item 3</li>
+		<li id="item-4">Item 4</li>
+		<li id="item-5">Item 5</li>
+	</ul>
+
+	<ul id="sort2">
+		<li>Item 1a</li>
+		<li>Item 2a</li>
+		<li>Item 3a</li>
+		<li>Item 4a</li>
+		<li>Item 5a</li>
+	</ul>
+
+	<script>
+		jQuery(document).ready(function($) {
+			$("#sort").sortable({
+				revert: true,
+				connectWith: "#sort2",
+				opacity: 0.5,
+				placeholder: "empty",
+				stop: function(){
+					console.log($(this).sortable("toArray"));
+				}
+			});
+
+			$("#sort2").sortable({
+				connectWith: "#sort"
+			});
+		});
+
+	</script>
+
+</body>
+</html>

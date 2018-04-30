@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+
+<script>
+	localStorage.firstName = "John";
+	localStorage.setItem("lastName", "Doe");
+	localStorage.age = 47;
+
+	var age = parseInt(localStorage.age, 10);
+
+	console.log(localStorage.firstName + " " +localStorage.lastName);
+	console.log(localStorage.getItem("lastName"));
+	console.log(typeof localStorage.age);
+
+	localStorage.removeItem("lastName");
+	localStorage.clear();
+	console.log(localStorage.firstName);
+
+	var person = {
+		firstName: "John",
+		lastName: "Smith",
+		age: 34
+	};
+
+	localStorage.person = JSON.stringify(person);
+	console.log(localStorage.person);
+
+	obj = JSON.parse(localStorage.person);
+
+	console.log(obj.firstName);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box {
+			background-color: red;
+			padding: 15px;
+			width: 300px;
+			height: 300px;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="box">
+	<h1>Hi</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quia modi unde cupiditate qui sequi omnis accusantium, autem, illo quidem ipsum soluta. Dicta tempora explicabo obcaecati pariatur illo aspernatur, labore.</p>
+	</div>
+
+	<button>Slide Toggle</button>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+	<script>
+
+	(function(){
+		var box = $('.box');
+		$.fn.fadeSlideToggle = function(speed, fn) {
+			return $(this).animate({
+				'height': 'toggle',
+				'opacity': 'toggle'
+			}, speed || 400, function(){
+				$.isFunction(fn) && fn.call(this);
+			});
+		};
+
+		$("button").on('click', function(){
+			//box.fadeSlideToggle(500).addClass('testing');
+
+			box.fadeSlideToggle(500, function(){
+				console.log('complete');
+			});
+			//box.fadeSlideToggle(500);
+		});
+	})();
+	</script>
+
+</body>
+</html>

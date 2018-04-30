@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	
+	<script>
+		function power(num, exp) {
+			var value = num;
+			for(var i=1; i<exp; i++) {
+				value = value * num;
+			}
+
+			return value;
+
+		}
+
+		console.log(power(5,7));
+		console.log(Math.pow(2,3));
+		console.log(Math.sqrt(16));
+		console.log(Math.round(9.73));
+		console.log(Math.ceil(9.03));
+		console.log(Math.floor(9.93));
+		console.log(Math.max(20,6,7,12,75));
+		console.log(Math.min(20,6.06,7,12,75));
+		console.log(Math.abs(-7));
+		console.log(Math.sin(90));
+		console.log(Math.cos(90));
+		console.log(Math.random()*100);
+		console.log(Math.PI);
+		console.log(Math.SQRT2);
+		console.log(Math.SQRT1_2);
+	</script>
+
+</body>
+</html>

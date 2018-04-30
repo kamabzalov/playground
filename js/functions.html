@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+
+<script>
+	sum(2,3);
+
+	function sum() {
+		console.log(arguments.callee);
+	}
+
+	function myFunc() {
+		myFunc();
+	}
+
+	function doFunc(arg1) {
+		return function() {
+			console.log(arg1);
+		};
+	}
+
+	var fn = doFunc("hello Closure");
+	var fn2 = doFunc("hello Closure2");
+	fn();
+	fn2();
+	fn();
+
+	fn = null;
+
+	var i = 0;
+
+	function nameGen() {
+
+		var name =  "name" + i;
+		i++;
+		return name;
+
+	}
+
+	var name = nameGen(),
+		name2 = nameGen();
+
+	console.log(name + " " + name2);	
+</script>
+
+</body>
+</html>

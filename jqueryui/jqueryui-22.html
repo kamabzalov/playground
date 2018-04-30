@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+	<style>
+		body{
+			padding: 50px;
+		}
+		/*.box{width: 100px; height: 100px; background-color: red; border: 1px solid black;}  */
+		.box{width: 100px; height: 100px; background-color: red; border: 1px solid black; display: none;}  
+	</style>
+</head>
+<body>
+	
+	<div class="box"></div>
+	<button id="go">GO</button>
+
+	<script>
+		jQuery(document).ready(function($) {
+	
+			$("#go").on('click', function(){
+				/*$(".box").hide("explode", {size: 50, horizfirst: true});
+				$(".box").hide("explode", {direction: "down"});*/
+				$(".box").show("drop", {direction, "up"});
+				$(".box").show("slide");
+			});		
+
+		});
+
+	</script>
+
+</body>
+</html>

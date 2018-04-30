@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+	<style>
+		.ui-draggable {
+			height: 300px;
+			width: 300px;
+			border:1px solid #000;
+			position: absolute;
+			bottom: 1%;
+		}
+		#drag1 {
+			margin-right: 10px;
+		}
+		#drop2 {
+			right: 1%;
+		}
+	</style>
+</head>
+<body>
+	
+	<div class"drag" id="drag1"></div>
+	<div class"drag" id="drag2"></div>
+	<div id="drop1"></div>
+	<div id="drop2"></div>
+
+	<script>
+		jQuery(document).ready(function($) {
+			$("#drag1").draggable({
+				scope: "a"
+			});
+
+			$("#drag2").draggable({
+				scope: "b"
+			});
+
+			$("#drop1").droppable({
+				scope:"a",
+				drop: function(){
+					console.log("Scope is dropped");
+				}
+			});
+
+			$("#drop2").droppable({
+				scope:"b",
+				drop: function(){
+					console.log("Scope is dropped");
+				},
+				activate: function() {
+					$(this).css("backgroundColor", "green");
+				},
+				deactivate: function() {
+					$(this).css("backgroundColor", "white");
+				}
+			});
+		});
+
+	</script>
+
+</body>
+</html>

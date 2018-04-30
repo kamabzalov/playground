@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#content {
+			width: 700px;
+			margin: 0 auto;
+		}
+
+		.js form {
+			display: none;
+		}
+
+		form {
+			background: #e1e1e1;
+			padding: 20px;
+			margin-top: 20px;
+		}
+
+		form div {
+			margin-bottom: 15px;
+		}
+	</style>
+</head>
+<body>
+
+<div id="content">
+<article>
+	<h1>Post</h1>
+
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat culpa, voluptate quaerat sequi excepturi! Libero ullam ipsam consequatur nam dolorum reprehenderit mollitia reiciendis, facere molestias quibusdam veritatis beatae, numquam sapiente.</p>
+
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus quisquam, a nostrum dolorum distinctio minima commodi voluptatibus mollitia ea consectetur placeat modi, excepturi voluptas aut architecto debitis iste ab repudiandae.</p>
+
+</article>
+<div id="contact">
+	<form action="">
+		<div>
+			<label for="name">Имя</label>
+			<input type="text">	
+		</div>
+		<div>
+			<label for="name">Фамилия</label>
+			<input type="text">	
+		</div>
+		<div>
+			<input type="submit" value="Send">
+		</div>
+	</form>	
+</div>
+	
+</div>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+	
+	jQuery(document).ready(function($) {
+		$('html').addClass('js');
+
+		var contactForm = {
+			container: $('form'),
+			config: {
+				effect: 'slideToggle',
+				speed: 500
+			},
+
+			init: function(config) {
+				$.extend(this.config, config);
+				$('<button></button>', {
+					text: 'Contact Me'
+				})
+				.insertAfter('article')
+				.on('click', this.show)
+			},
+
+			show: function() {
+				var cf = contactForm,
+					container = cf.container,
+					config = cf.config;
+
+				if(container.is(':hidden')) {
+				contactForm.close.call(container);
+				container[config.effect](config.speed);
+				}	
+			},
+
+			close: function() {
+				var $this = $(this);
+
+				if($this.find('span.close').length) return;
+
+				$('<span class=close>X</span>').prependTo(this)
+							.on('click', function(){
+								$this[contactForm.config.effect](contactForm.config.speed);
+							})
+			}
+		};
+
+		contactForm.init({
+			effect: 'fadeToggle',
+			speed: 300
+		});
+	});
+
+</script>
+
+</body>
+</html>

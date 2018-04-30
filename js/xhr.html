@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+<form action="" id="theForm">
+	<input type="text" id="theName" name="theName">
+	<input type="email" id="theEmail" name="theEmail">
+	<input type="submit" id="theSubmit" name="theSubmit" value="btnSubmit">
+</form>
+
+
+<script>
+
+	var form = document.getElementById("theForm");
+	form.onsubmit = function(event) {
+		var data = getRequestBody();
+		var xhr = new XMLHttpRequest();
+	xhr.open("POST", "text.txt", true);
+	xhr.setRequestHeader("Content-Type", "applocation/x-www-form-urlencoded");
+	xhr.onreadystatechange = function() {
+		if(xhr.readyState === 4) {
+			console.log(xhr.status);
+			alert(xhr.responseText);
+		}
+	};
+	xhr.send(data);
+	//console.log(xhr.responseText + " this os outside");
+		event.preventDefault();
+	};
+
+
+	var getRequestBody = function() {
+			var values = [];
+		for(var i=0; i<form.elements.length; i++) {
+			var el = form.elements[i],
+				name = encodeURIComponent(el.name),
+				value = encodeURIComponent(el.value),
+				complete = name + " = " + value;
+				values.push(complete);
+		}
+		return values.join("&");
+	};
+</script>
+
+</body>
+</html>

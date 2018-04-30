@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			width: 500px;
+			margin: 0 auto;
+			text-align: center;
+		}
+		dd{
+			margin: 0;
+			padding: 1em 0; 
+		}
+		dt {
+			cursor: pointer;
+			font-weight: bold;
+			font-size: 1.5em;
+			line-height: 2em;
+			background: #e3e3e3;
+			border-bottom: 1px solid #c5c5c5;
+			border-top: 1px solid white;
+		}
+
+		dt:nth-last-child(2) {
+			border-radius: none;
+		}
+	</style>
+</head>
+<body>
+
+	<dl>
+		<dt>What are your hours?</dt>
+		<dd>We are open 24/7</dd>
+		<dt>What are your hours?</dt>
+		<dd>We are open 24/7</dd>
+		<dt>What are your hours?</dt>
+		<dd>We are open 24/7</dd>
+		<dt>What are your hours?</dt>
+		<dd>We are open 24/7</dd>
+	</dl>
+	
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+	<script>
+		jQuery(document).ready(function($) {
+			$('dd').filter(':nth-child(n+4)').hide();
+
+			$('dt').on('mouseenter', function(){
+					$(this).next().slideDown(200).siblings('dd').slideUp(300);
+			});
+		});
+	</script>
+
+
+</body>
+</html>

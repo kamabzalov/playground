@@ -1,0 +1,31 @@
+<!-- В angulat 1.5 не работает без модуля -->
+<!DOCTYPE html>
+<html ng-app>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+
+        <div>
+            <input type="search" data-ng-model="search">
+        </div>
+
+        <div ng-controller="List">
+            <ul>
+                <li ng-repeat="person in people | filter:search">{{person.name}} : {{person:age}}</li>
+            </ul>
+        </div>
+
+        <script src="angular.min.js"></script>
+        <script>
+            var List = function($scope) {
+                $scope.names = [
+                    {name: "Tom", age: 20},
+                    {name: "Jeffrey", age: 30},
+                    {name: "Dan", age: 40},
+                ];
+            };
+        </script>
+    </body>
+</html>

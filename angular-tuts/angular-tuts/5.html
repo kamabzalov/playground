@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body data-ng-controller="Browser">
+
+        <input type="text" vaule="edit/{{path}}">
+        <input type="text" data-ng-model="path" data-ng-change="clean()">
+
+        <div data-ng-controller="Contacts">
+            <select name="" id="" data-ng-model="selected_person" data-ng-options="person.name for person in people">
+                <option value="">Choose</option>
+            </select>
+        </div>
+
+        <script src="angular.min.js"></script>
+        <script>
+            var Browser = function($scope) {
+                $scope.clean = function() {
+                    $scope.path = $scope.path.replace(/\s+/g, '-'/).replace(/[^a-z0-9-]/i, '');
+                }
+            }
+
+            var Contacts = function($scope) {
+                $scope.people = [
+                    {name: "Kam Abzalov", number: "123456"},
+                    {name: "Kamil Abzalov", number: "123456"},
+                    {name: "K Abzalov", number: "123456"},
+                ]
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+	<script>
+		jQuery(document).ready(function($) {
+			var arr = [1,2,3,4,5,6,7,8,9,10];
+
+			arr = $.grep(arr, function(val, index) {
+				return val > 5;	
+			}, true);
+			console.log(arr);
+
+
+			var obj = [
+				{
+					first: "Kamil",
+					last: "Abzalov"
+				},
+				{
+					first: "Ivan",
+					last: "Ivanov"
+				},
+				{
+					first: "Petr",
+					last: "Abzalov"
+				},
+			];
+
+			obj = $.grep(obj, function(o, index) {
+				return o.last === 'Abzalov';
+			});
+
+			console.log(obj);
+		});	
+	</script>
+</body>
+</html>

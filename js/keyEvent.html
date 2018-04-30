@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+<input type="text" id="txtInput"/>
+
+
+	<script>
+		var txt = document.getElementById("txtInput");
+
+		txt.onkeypress = function(event) {
+			//console.log(event.charCode);	
+			//console.log(event.keyCode);	
+		};
+
+		txt.onkeydown = function(event) {
+			//console.log(event.charCode);	
+			console.log(event.keyCode);	
+		};
+
+
+
+	</script>
+
+</body>
+</html>

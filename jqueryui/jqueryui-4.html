@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+</head>
+<body>
+	
+	
+	<a href="#" id="button1">Go</a>
+	<input type="button" id="button2" value="Another button">
+	<button id="button3">Button</button>
+	<label for="check1">Checkbox</label>
+	<input type="checkbox" id="check" type="checkbox" value="1">
+	<input type="checkbox" id="checkTwo" type="checkbox" value="2">
+
+	<div id="radio">
+		<label for="check1">Checkbox</label>
+		<input type="radio" id="check" type="checkbox" value="1">
+		<input type="radio" id="checkTwo" type="checkbox" value="2">		
+	</div>
+	<script>
+		jQuery(document).ready(function($) {
+			$("#button1").button();
+			$("#button2").button();
+			$("#button3").button({
+				text: false,
+				icons: {
+					primary: "ui-icon-plus",
+					//secondary: "ui-icon-plus"
+				},
+				create: function(e, ui) {
+
+				}
+			});
+
+			$("[type='checkbox']").button();
+			$("#radio").buttonset();
+		});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<h1>My tweets</h1>
+	<div class="tweets"></div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+	<script src="search.js"></script>
+	<script>
+		$('div.tweets').queryTwitter({
+			search: 'Justin Bieber',
+			limit: 3,
+			onComplete: function() {
+
+			},
+			refresh: 4000,
+			transition: 
+		});
+	</script>
+
+</body>
+</html>

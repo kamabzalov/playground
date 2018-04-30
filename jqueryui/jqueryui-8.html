@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+	
+</head>
+<body>
+	
+	
+	<div id="slider"></div>
+
+	<button id="get">Get</button>
+	<button id="set">Set</button>
+
+	<script>
+		jQuery(document).ready(function($) {
+			$("#slider").slider({
+				//orientation: "vertical",
+				values: [25,75],
+				step: 10
+			});
+
+			$("#get").on('click', function(){
+				console.log("value is:" + $("#slider").slider("value"));
+			});
+
+			$("#set").on('click', function(){
+				$("#slider").slider("value", 100);
+			});
+
+			$("#slider").on('slidecreate slidechange slidestop slide', function(e){
+				console.log("the event is" + e.type);
+			});
+		});
+	</script>
+
+</body>
+</html>

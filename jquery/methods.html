@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+
+<a href="#">Click me</a>
+
+<script id="blogTemplate" type="tuts/template">
+	<h2>{{title}}</h2>	
+	<img src={{thumbnail}} alt={{title}}>
+</script>	
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+	var content = [
+		{
+			title: 'My awesome post',
+			thumbnail: 'https://placekitten.com/200/300',
+		},
+		{
+			title: 'My second awesome post',
+			thumbnail: 'https://placekitten.com/200/300',
+		},
+	];
+
+	template = $.trim($('#blogTemplate').html());
+
+	$.each(content, function(index, obj){
+		var temp = template.replace(/{{title}}/ig, obj.title)
+		.replace(/{{thumbnail}}/ig, obj.thumbnail);
+
+	$(document.body).append(temp);
+	});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!-- В angulat 1.5 не работает без модуля -->
+<!DOCTYPE html>
+<html ng-app>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+
+        <div>
+            <input type="search" data-ng-model="search">
+            <button data-ng-click="remove($index)" class="first-{{$first}}">x</button>
+            <span data-ng-show="$first">First!</span>
+            <span data-ng-show="$last">Last!</span>
+            <span data-ng-show="$middle">Middle!</span>
+        </div>
+
+        <div ng-controller="List">
+            <ul>
+                <li ng-repeat="person in people | filter:search">{{person.name}} : {{person:age}}</li>
+            </ul>
+            <span>There are {{people.length}} in the list</span>    
+            <div>
+                <label for="">Name:</label>
+                <input type="text" data-ng-model="newName">
+                <br>
+                <label for="">Age:</label>
+                <input type="text" data-ng-model="newAge">
+                <br>
+                <button data-ng-click="add();newName='';newAge='';">Add</button>
+            </div>
+        </div>
+
+        <script src="angular.min.js"></script>
+        <script>
+            var List = function($scope) {
+                $scope.names = [
+                    {name: "Tom", age: 20},
+                    {name: "Jeffrey", age: 30},
+                    {name: "Dan", age: 40},
+                ];
+
+                $scope.add = function() {
+                    $scope.people.push({
+                        name: $scope.newName,
+                        age: $scope.newAge
+                    });
+                };
+
+                $scope.remove = function() {
+                    $scope.people.splice(index,1);
+                }
+            };
+        </script>
+    </body>
+</html>

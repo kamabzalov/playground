@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+	<style>
+		body{
+			padding: 50px;
+		}
+		.box{width: 100px; height: 100px; background-color: red; border: 1px solid black;}  
+		.box2{width: 200px; height: 200px; background-color: red;margin-top:50px;}
+		.ui-effects-transfer {border: 2px solid green;} 
+	</style>
+</head>
+<body>
+	
+	<div class="box"></div>
+	<div class="box2"></div>
+	<button id="go">GO</button>
+
+	<script>
+		jQuery(document).ready(function($) {
+	
+			$("#go").on('click', function(){
+				//(".box").effect('bounce');
+				/*$(".box").effect('shake', 'slow', function(){
+					console.log('after');*/
+				/*$(".box").effect('highlight', {color: 'blue'});	
+				$(".box").effect('pulsate');	
+				});*/
+				$(".box").effect("transfer", {to: ".box2"});
+			});		
+
+		});
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<article>
+	<h1>My awesome Post</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorum, amet similique, nisi nostrum ullam cum eum, repudiandae corrupti deleniti officiis sed mollitia reprehenderit, harum numquam sint modi. Nam, praesentium.</p>
+
+	<p><span class="co">Lorem ipsum dolor sit amet</span>, consectetur adipisicing elit. Aliquid laborum explicabo illo commodi. Suscipit possimus natus veniam cumque nemo eveniet illum, facilis fugit ducimus. Similique hic necessitatibus temporibus, placeat suscipit!</p>
+</article>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<script>
+	jQuery(document).ready(function($) {
+		$('article').append('Some text');
+		$('article').prepend('Some text');
+		$('h1').after('<b>Some text</b>');
+		$('p').first().before('Hello');
+		$('<h2></h2>', {
+			text: 'Hello jQuery',
+			class: 'myClass'
+		}).appendTo('article');
+		$('h1').appendTo('article');
+		//$('p').after($('h1'));
+		$('p').first().after($('h1'));
+
+		var co = $('span.co').each(function() {
+			var $this = $(this);
+			$('<blockquote></blockquote', {
+				class: 'co',
+				text: $this.text()
+			}).prependTo($this.closest('p'));
+			$(this).closest('p').prepend('Some text');
+		});
+	});
+</script>
+
+</body>
+</html>

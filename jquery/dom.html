@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<ul class="list">
+		<li>item 1</li>
+		<li>
+			<ul>
+				<li>subitem</li>
+			</ul>
+		</li>
+		<li>item 3</li>
+	</ul>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script>
+		$('ul.list').children('li').css('color', 'green');
+		$('ul.list').find('li').css('color', 'green');
+		$('ul.list').find('li:first-child').addClass('myClass');
+		$('ul.list').children('li').first().attr('id', 'myID');
+
+		$('li').parent().removeClass('list');
+		$('li').parents().removeClass('list');
+		$('li').closest().removeClass('list');
+	</script>
+</body>
+</html>

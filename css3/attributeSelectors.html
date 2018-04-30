@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Attribute Selectors</title>
+	<style type="text/css">
+	
+		 a[href*="tutsplus"]{
+			color: green;
+		} 
+
+		 a[href$=".pdf"]:before{
+			content: 'PDF';
+			font-size: 11px;
+			font-family: sans-serif;
+			background: black;
+			color: white;
+			border-radius: 8px;
+			padding: 2px;
+			margin-right: 5px;
+		
+		} 
+
+		a[href^="http"]{
+			color: yellow;
+		} 
+
+		
+
+	</style>
+</head>
+<body>
+	
+<ul>
+	<li><a href="http://myfile.pdf">Another</a></li>
+	<li><a href="http://net.tutsplus.com/">Nettuts+</a></li>
+	<li><a href="somePage.html">Page</a></li>
+	<li><a href="http://wp.tutsplus.com/">Wptuts+</a></li>
+	<li><a href="http://psd.tutsplus.com/">Psdtuts+</a></li>
+	<li><a href="http://tatarlove.ru/58060">TatLove</a> </li>
+	<li><a href="http://myfile.pdf">My file</a></li>
+	<li><a href="myfile.pdf">File</a></li>
+</ul>
+
+</body>
+</html>

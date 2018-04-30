@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+
+<form action="" id="theForm" name="theForm">
+	<input type="text" id="textBox"><br>
+	<textarea name="" id="textareaBox" cols="30" rows="10">Область ввода текста</textarea><br>
+	<input type="button" id="theButton" value="Отправить">
+	<select name="week" id="week">
+		<option value="0">Понедельник</option>
+		<option value="1">Вторник</option>
+		<option value="2">Среда</option>
+		<option value="3">Четверг</option>
+		<option value="4">Пятница</option>
+		<option value="5">Суббота</option>
+		<option value="6">Воскресенье</option>
+	</select>
+
+	<!--<input type="checkbox" name="color" id="color" value="red">Red <br>
+	<input type="checkbox" name="color" id="color" value="blue">Green <br>
+	<input type="checkbox" name="color" id="color" value="green">Blue <br>-->
+
+	<input type="radio" name="color" id="color" value="red">Red <br>
+	<input type="radio" name="color" id="color" value="blue">Green <br>
+	<input type="radio" name="color" id="color" value="green">Blue <br>
+</form>
+
+<script>
+	var form = document.getElementById("theForm");
+	button = form.theButton;
+	textBox = form.textBox;
+	textArea = form.textareaBox;
+	select = form.week;
+	color = form.color;
+
+	form.onsubmit = function(event) {
+		this.preventDefault(event);
+	}
+
+	button.onclick = function(event) {
+		//console.log(this.value);
+		//console.log(this.type);
+		//this.disabled= true;
+		/*if(textBox.value === "") {
+			alert("Поле пустое");
+			textBox.focus();
+		}
+
+		if(textArea.value === "") {
+			alert("Поле также пустое");
+		}*/
+
+		//textArea.select();
+		//textArea.disabled = true;
+		//textArea.value = "true";
+		//console.log("You clicked me");
+		/*var index = select.selectedIndex;
+		console.log(index);
+		var option = select.options[index];
+		console.log(option.value);*/
+		/*var option = select.selectedOptions[0];
+		select.remove(0);
+
+		var monOption = new Option("Понедельник");
+		select.options[select.options.length] = monOption;
+
+		select.add(monOption, select.options[0]);*/
+
+		//color.checked = true;
+		var pickedColors = "";
+		for (var i=0; i<color.length; i++) {
+			if(color[i].checked) {
+				pickedColors = color[i].value;
+			}
+		}
+
+		alert(pickedColors);
+	}
+</script>
+
+</body>
+</html>
