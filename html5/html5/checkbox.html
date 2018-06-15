@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Флажок</title>
+  <style>
+   .switch input { display: none; /* Прячем исходный флажок */ }
+   .switch label {
+    display: inline-block; /* Строчно-блочный элемент */
+    position: relative; /* Относительное позиционирование */
+    width: 60px; height: 30px; /* Размеры прямоугольника */
+    background: #9E9E9E; /* Серый цвет фона */
+    transition: 0.5s; /* Время смены цвета фона */
+   }
+   .switch label::before {
+    content: '';
+    position: absolute; /* Абсолютное позиционирование */
+    background: #fff; /* Цвет фона квадратика */
+    width: 20px; height: 20px; /* Размеры квадратика */
+    left: 35px; top: 5px; /* Положение квадратика */
+    transition: 0.5s; /* Время движения квадратика */
+   } 
+   .switch input:checked + label {
+    background: #1976D2; /* Синий цвет фона */
+   }
+   .switch input:checked + label::before {
+    left: 5px; /* Квадратик слева */
+   }
+  </style>
+ </head>
+ <body>
+  <div class="switch">
+   <input type="checkbox" id="switch">
+   <label for="switch"></label>
+  </div>
+ </body>
+</html>

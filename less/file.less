@@ -1,73 +1,152 @@
-//variables
+// Переменные
 @blue: #195f88;
-@darkblue: darken(@blue, 8%);
+@darkBlue: #0d4667;
+@paleBlue: #84bbdb;
+@midBlue: #4b88ad;
 @red: #d9001f;
-@paleblue: lighten(desaturate(blue, 25%), 35%);
-@midblue: spin(lighten(desaturate(@blue, 25%), 17%), 1);
-@purple: mix(@blue, @red, 50%);
+@brightRed: #f60031;
+@stack: Arial, Helvetica, sans-serif;
+@var1: "This is a text";
+@var2: @var1;
+@margin: 20px;
+@colorOne: darken(@darkBlue, 8%);
+@colorTwo: lighten(desaturate(@blue, 25%), 35%);
+@colorThree: spin(lighten(desaturate(@blue, 25%), 17%), 1%);
+
+@purple: mix(@blue, @red, 50%, 50%);
 
 @container: 500px;
-@box: @container / 2;
+@class-2: percentage(0.2);
+@boxWidth: floor(@container / 3);
 
-.class {
-	width: @box;
-}
 
-.class2 {
-	width: percentage(2)
-}
-
-.purple {
-	color: @purple;
-}
-
-.msopacity(@opacity) {
-	-ms-filter: "progid: DXImageTransform Microsoft.Alpha(Opacity=@{opacity})";
-	filter: alpha(opacity=@opacity);
-}
-
-.borderradius{
-	-webkit-border-radius: 0.2em;
-	-moz-border-radius: 0.2em;
-	-o-border-radius: 0.2em;
-	border-radius: 0.2em;
-}
 .normalized {
-	font-weight: normal;
-	font-style: normal;
-	.msopacity(100);
+    font-weight: normal;
+    font-style: normal;
 }
 
-@font-face {
-	.normalized;
+.opacity {
+    opacity: .3;
 }
 
-a{
-	background: @blue;
+.myMixin(@font-size) {
+    font-size: @font-size;
 }
 
-header{
-	color: red;
+#shadow {
 
-	h1{
-		font-size: 20px;
-	}
+    .shadow(text, @x, @y, @blur, @color) {
+        text-shadow: @x, @y, @blur, @color;
+    }
+    
+    .shadow(box, @x, @y, @blur, @color) {
+        box-shadow: @x, @y, @blur, @color;
+    }
+    
+    .shadow(@_, @x, @y, @blur, @color) {
+        font-style: italic;
+    }
+    
+    .boxShadow(@x, @y, @blur, @color) {
+        box-shadow: @arguments;
+    }
+    
+    .boxShadow(@inset, @x, @y, @blur, @color) {
+        box-shadow: @arguments;
+    }
+
 }
 
-a{
-	&:link, &:visited {
-		font-size: 15px;
-	}
+.text(@val) when (@val > 16px) {
+    font-weight: bold;
+    font-style: italic;
+    #shadow .shadow(text, 1px, 1px, 5px, #000);
 }
 
-@mystring: "escape";
-
-.class {
-	content: "@{mystring} ing";
+.text(@val){
+   color: #fc8;
+   font-family: @stack;
+   font-size: @val;
 }
 
-@margin: 20px;
+.heading(@val) when(@val = true) {
+    font-size: 30px;
+}
 
-ul{
-	margin-top: @margin + 2 * 2;
+.heading() {
+    font-size: 20px;
+}
+
+.grid(@index, @colWidth: 80) when(@index > 8) {
+    (~".grid-@{index}") {
+        @width: @index * @colWidth;
+        width: ~"@{width}px";
+    }
+
+    .grid(@index - 1, @colWidth);
+}
+
+.grid(0, @_) {}
+
+.grid(12, 100);
+
+body {
+    font-family: @stack;
+    color: @colorOne;
+    background: @purple;
+    .normalized;
+}
+
+h1 {
+    .shadow(text, 1px, 2px, 3px, red);
+}
+
+h2 {
+    .shadow(box, 1px, 2px, 3px, red);
+}
+
+h3 {
+    #shadow > boxShadow(1px, 2px, 3px, #000);
+}
+
+h4 {
+    .boxShadow(inset, 1px, 2px, 3px, #000);
+}
+
+h4 {
+    .text(18px);
+}
+
+h5 {
+    .text(11px);
+}
+
+h6 {
+    .heading(true);
+}
+
+p {
+    .heading();
+}
+
+.col {
+    width: @boxWidth;
+}
+
+.sel {
+    content: @var2;
+    width: @class-2;
+    #whoops {
+        font-size: 2em;
+        margin-top: @margin + 5;
+        margin-bottom: @margin - 5;
+        margin-left: @margin / 5;
+        margin-right: @margin * 5;
+        color: @colorTwo;
+    }
+}
+
+a {
+    color: @blue;
+    .myMixin(45px;)
 }

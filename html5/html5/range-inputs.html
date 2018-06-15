@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        dt {
+            float: left;
+            padding-right: 20px;
+            clear: both;
+        }
+
+        dd {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <dl>
+        <dt>Red</dt>
+        <dd><input type="range" min="0" max="255" name="r" id="r"></dd>
+
+        <dt>Green</dt>
+        <dd><input type="range" min="0" max="255" name="g" id="g"></dd>
+
+        <dt>Blue</dt>
+        <dd><input type="range" min="0" max="255" name="b" id="b"></dd>
+    </dl>
+    
+    <h1>Kamil Abzalov</h1>
+
+    <script>
+        var heading, r,g,b;
+        function supportsRange() {
+            var i = document.createElement("input");
+            i.setAttribute('type', 'range');
+
+            return i.type === 'range';
+        }
+
+        if(supportsRange()) {
+            heading = document.querySelector('h1');
+            r = document.querySelector('#r');
+            g = document.querySelector('#g');
+            b = document.querySelector('#b');
+
+            document.body.addEventListener('change', function(){
+                heading.style.color = 'rgb(' + [r.value, g.value, b.value].join(',') +')';
+            }, false);
+        }
+    </script>
+
+</body>
+</html>

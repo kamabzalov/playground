@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" placeholder="John Doe">
+    <input type="email">
+
+    <script>
+        if('placeholder' in document.createElement('input')) {
+            // polyfill
+        }
+
+        function testSupport(type) {
+            var i = document.createElement('input');
+            i.setAttribute('type', type);
+            return i.type === type;
+        }
+
+        if(!testSupport('email')) {
+            // 
+        }
+
+        if(document.createElement('canvas').getContext) {
+            // 
+        }
+
+        if(document.createElement('audio').canPlayType) {
+            // 
+        }
+
+        function supportStorage(){
+            try {
+                return 'localStorage' in window && window.localStorage !== null;
+            } catch(e) {
+                return false;
+            }
+        }
+
+        if(!navigator.geolocation) alert ('trackme');
+
+        
+    </script>
+
+</body>
+</html>

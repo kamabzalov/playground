@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input,textarea {display: block;}
+    </style>
+</head>
+<body>
+    
+
+    <form>
+        <input type="text" name="title">
+        <input type="text" name="name">
+        <textarea name="comment" id="" cols="30" rows="10"></textarea>
+        <input type="checkbox" name="someCheck">
+        <input type="radio" name="someRadio">
+        <input type="submit">
+    </form>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+
+    <script>
+
+        if(localStorage.formData) {
+            (function bindStorageToForm(){
+                var data = localStorage.formData,
+                    sp = data.split('&'),
+                    pair;
+                    $.each(sp, function(i, val){
+                        pair = val.split("=");
+                        if(!pair[1]) return true;
+                        if(pair[1] === 'on') {
+                            form[0][pair[0]].checked = true; 
+                        }
+
+                        form[0][pair[0]].value = unescape(pair[1]).replace(/\+/g, ' ');
+                    });
+            }) ();
+        }
+
+        setInterval(function(){
+            localStorage.formData = $("form").serialize();    
+        }, 3000)
+    </script>
+
+</body>
+</html>

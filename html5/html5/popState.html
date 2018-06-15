@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul>
+        <li><a href="https://code.tutsplus.com/courses/html5-fundamentals?_ga=2.8949686.266799581.1528029106-1724373053.1527923355">Link</a></li>
+        <li><a href="https://vk.com/kamabzalov">Link</a></li>
+        <li><a href="https://ya.ru">Link</a></li>
+    </ul>
+
+    <script>
+        // RUN ONE THE SERVER
+        
+        // history.go(-1);
+        // history.go(2);
+        // history.forward();
+        // history.back();
+
+        history.pushState(
+            'some data',
+            'page title',
+            'page'
+        );
+
+        window.addEventListener('popState', function(e){
+            console.log(e);
+        });
+    </script>
+
+</body>
+</html>
